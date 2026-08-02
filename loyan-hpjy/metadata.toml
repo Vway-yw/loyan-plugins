@@ -8,8 +8,8 @@ icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
 dependencies = []
 category    = "Entertainment"
 tags        = ["和平精英", "热点", "爆料", "攻略", "游戏"]
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+repo        = "Vway-yw/loyan-hpjy"
+docs_url    = "https://github.com/Vway-yw/loyan-hpjy"
 min_framework = "0.1.0"
 
 [handler]
