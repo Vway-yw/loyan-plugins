@@ -1,0 +1,32 @@
+[plugin]
+name        = "和平精英热点"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "和平精英热点/爆料/攻略查询，30分钟自动刷新保证时效"
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+category    = "Entertainment"
+tags        = ["和平精英", "热点", "爆料", "攻略", "游戏"]
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_hpjy"
+
+[trigger]
+commands       = ["/和平热点", "/和平精英热点", "/和平资讯", "/和平爆料", "/和平更新", "/和平精英爆料", "/和平攻略", "/和平精英攻略"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/和平热点"     = "🔫 查看和平精英最新热点 TOP10"
+"/和平爆料"     = "⚡ 查看和平精英版本更新/新活动爆料"
+"/和平攻略"     = "📖 查看攻略（可用 /和平攻略 <内容> 定向搜索）"
+"/和平精英热点"     = "🔫 查看和平精英最新热点 TOP10"
+"/和平资讯"     = "🔫 查看和平精英最新热点 TOP10"
+"/和平更新"     = "⚡ 查看和平精英版本更新/新活动爆料"
+"/和平精英爆料"     = "⚡ 查看和平精英版本更新/新活动爆料"
+"/和平精英攻略"     = "📖 查看攻略（可用 /和平攻略 <内容> 定向搜索）"
