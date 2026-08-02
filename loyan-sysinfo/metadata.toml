@@ -13,8 +13,8 @@ description = "系统状态查询插件，展示机器人运行信息、系统�
 
 category    = "Tools"
 tags        = ['系统信息', '状态']
-repo        = "Vway-yw/loyan-sysinfo"
-docs_url    = "https://github.com/Vway-yw/loyan-sysinfo"
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
 min_framework = "0.1.0"
 
 [handler]
