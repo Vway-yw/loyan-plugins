@@ -2,7 +2,10 @@
 name        = "象棋启动器"
 version     = "1.0.0"
 author      = "Vway-yw"
+priority    = 50
 icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
 description = "检测象棋服务器是否正常运行"
 
 category    = "Entertainment"
@@ -19,5 +22,5 @@ commands       = ["/chess status"]
 chat_type      = ["private", "group"]
 permission     = "all"
 is_at_required = false
-priority       = 60
+
 command_descriptions = {"/chess status" = "检测象棋服务器是否正常运行"}

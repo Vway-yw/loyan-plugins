@@ -5,7 +5,10 @@
 name        = "SysInfo_plugin"
 version     = "1.2.0"
 author      = "Vway-yw"
+priority    = 50
 icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
 description = "系统状态查询插件，展示机器人运行信息、系统资源占用等详情"
 
 category    = "Tools"

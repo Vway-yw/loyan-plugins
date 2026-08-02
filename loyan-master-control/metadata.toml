@@ -2,7 +2,10 @@
 name        = "MasterControl"
 version     = "1.0.0"
 author      = "Vway-yw"
+priority    = 50
 icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
 description = "主人控制面板 - 群聊管理、跨群发消息"
 
 category    = "Manage"
@@ -19,7 +22,7 @@ commands       = ["/群列表", "/发群", "/set群名"]
 chat_type      = ["private", "group"]
 permission     = "all"
 is_at_required = false
-priority       = 10
+
 
 [trigger.command_descriptions]
 "/群列表"         = "查看机器人所在的所有群聊ID"

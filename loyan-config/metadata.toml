@@ -2,7 +2,10 @@
 name        = "Loyan配置"
 version     = "2.0.0"
 author      = "Vway-yw"
+priority    = 50
 icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
 description = "获取 LoyanBot 安装与配置过程"
 
 category    = "Tools"
