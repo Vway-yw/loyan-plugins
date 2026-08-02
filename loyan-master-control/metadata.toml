@@ -2,9 +2,10 @@
 name        = "MasterControl"
 version     = "1.0.0"
 author      = "Vway-yw"
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
 description = "主人控制面板 - 群聊管理、跨群发消息"
- "https://raw.githubusercontent.com/Vway-yw/loyan-master-control/main/icon.svg"
-category    = "Admin"
+
+category    = "Manage"
 tags        = ['管理', '群聊', '主人']
 repo        = "Vway-yw/loyan-master-control"
 docs_url    = "https://github.com/Vway-yw/loyan-master-control"

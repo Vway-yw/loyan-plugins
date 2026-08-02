@@ -2,8 +2,9 @@
 name        = "游戏插件"
 version     = "1.0.0"
 author      = "Vway-yw"
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
 description = "钓鱼/挖矿/打猎等小游戏，支持金币、经验、等级、排行榜"
- "https://raw.githubusercontent.com/Vway-yw/loyan-game/main/icon.svg"
+
 category    = "Entertainment"
 tags        = ['游戏', '钓鱼', '挖矿', '打猎', '签到', '排行榜']
 repo        = "Vway-yw/loyan-game"
