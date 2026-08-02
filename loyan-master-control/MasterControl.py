@@ -7,7 +7,7 @@ from datetime import datetime
 from loyan.core.decorators import on_command, plugin_handler, PluginContext
 from graci import LoyanText, LoyanImage
 
-_logger = logging.getLogger("Gracy.MasterControl")
+_logger = logging.getLogger("Loyan.MasterControl")
 
 
 def _is_master(ctx: PluginContext) -> bool:

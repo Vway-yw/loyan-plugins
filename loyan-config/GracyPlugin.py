@@ -3,7 +3,7 @@ from loyan.core.decorators import on_command, plugin_handler, PluginContext
 
 @on_command("/loyan get", "/loyan安装", "/loyan配置")
 @plugin_handler
-async def handle_gracy_get(ctx: PluginContext):
+async def handle_loyan_get(ctx: PluginContext):
     """返回 LoyanBot 安装与 Web 可视化配置过程"""
     await ctx.reply(
         "🅻 LoyanBot 安装与配置过程\n\n"
@@ -14,7 +14,7 @@ async def handle_gracy_get(ctx: PluginContext):
         "   pip install -r requirements.txt\n"
         "   pip install . --force-reinstall --no-deps\n\n"
         "2️⃣ 启动：\n"
-        "   gracy run\n"
+        "   loyan run\n"
         "   启动后会自动拉起 Web 管理面板\n\n"
         "3️⃣ Web 可视化配置（新）：\n"
         "   🌐 浏览器打开面板地址（默认 http://127.0.0.1:5090）\n"

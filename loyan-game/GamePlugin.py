@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 
 from graci import LoyanImage
 
-logger = logging.getLogger("Gracy.游戏")
+logger = logging.getLogger("Loyan.游戏")
 
 # 串行化游戏状态读写，避免并发覆盖数据
 _game_lock = asyncio.Lock()

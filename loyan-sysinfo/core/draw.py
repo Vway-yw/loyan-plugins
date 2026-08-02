@@ -17,7 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 try:
     from graci import BOT_VERSION, ROBOT_ID  # 导入框架版本和配置
 except ImportError:
-    BOT_VERSION = os.environ.get("GRACY_BOT_VERSION", "unknown")
+    BOT_VERSION = os.environ.get("LOYAN_BOT_VERSION", "unknown")
     ROBOT_ID = "未知"
 
 # 常量配置
@@ -38,10 +38,10 @@ CARD_WIDTH = 700  # 卡片宽度
 CARD_TOP_PADDING = 20  # 卡片顶部内边距
 
 # 字体路径（使用SysInfo插件的字体）
-# 共享资源路径（gracybot/style/resource/）
+# 共享资源路径（loyan/style/resource/）
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 _RES = os.path.join(_ROOT, "style", "resource")
-ROBOT_LOGO_PATH = os.path.join(_RES, "gracybot_logo.png")
+ROBOT_LOGO_PATH = os.path.join(_RES, "loyan_logo.png")
 
 OUTPUT_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "temp_sysinfo.png")
 OS_LOGO_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "OS_LOGO")
@@ -399,7 +399,7 @@ class SysInfoDrawer:
         self.img = img
 
         # 绘制顶部标题和机器人LOGO
-        title_text = "GracyBot 系统状态监控"
+        title_text = "LoyanBot 系统状态监控"
         if self.robot_logo:
             # 机器人LOGO放在左上角
             img.paste(self.robot_logo, (30, 20), self.robot_logo)
@@ -567,13 +567,13 @@ class SysInfoDrawer:
         plugin_info = f"已加载插件数: {self.robot_info['plugin_count']} | python包: {self.robot_info['python_package_count']} | 触发指令: {self.robot_info['command_count']}条"
         draw.text((text_x, text_start_y + line_height*line_idx), plugin_info, font=self.font_text, fill=TEXT_COLOR)
 
-        # GracyBot版本
+        # LoyanBot版本
         line_idx += 1
         bot_version = self.sys_info.get("机器人版本", BOT_VERSION)
         draw.text((text_x, text_start_y + line_height*line_idx), f"框架版本：{bot_version}", font=self.font_text, fill=TEXT_COLOR)
 
         # 右下角版权信息 - 增加底部留白
-        footer_text = f"Created By GracyBot v{bot_version[1:] if bot_version.startswith('v') else bot_version}"
+        footer_text = f"Created By LoyanBot v{bot_version[1:] if bot_version.startswith('v') else bot_version}"
         footer_bbox = draw.textbbox((0, 0), footer_text, font=self.font_footer)
         footer_x = IMG_WIDTH - footer_bbox[2] - 30
         footer_y = _img_height - footer_bbox[3] - 30

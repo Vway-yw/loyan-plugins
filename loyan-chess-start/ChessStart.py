@@ -6,7 +6,7 @@ import websockets
 
 from loyan.core.decorators import on_command, plugin_handler, PluginContext
 
-_logger = logging.getLogger("Gracy.象棋启动器")
+_logger = logging.getLogger("Loyan.象棋启动器")
 
 PING_URL = "ws://api.cchess.moyegame.com:10000/"
 

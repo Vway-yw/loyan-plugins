@@ -12,7 +12,7 @@ docs_url    = "https://github.com/Vway-yw/loyan-config"
 min_framework = "0.1.0"
 
 [handler]
-entry       = "handle_gracy_get"
+entry       = "handle_loyan_get"
 
 [trigger]
 commands       = ["/loyan get", "/loyan安装", "/loyan配置"]

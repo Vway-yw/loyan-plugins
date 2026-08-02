@@ -299,7 +299,7 @@ async def _get_shell_terminal() -> Dict:
 async def _get_robot_info() -> Dict:
     robot_info = {
         "qq": get_current_robot_id(),
-        "nickname": "GracyBot",
+        "nickname": "LoyanBot",
         "avatar_url": None,
         "friend_count": 0,
         "group_count": 0,
@@ -501,7 +501,7 @@ async def get_system_info() -> Dict:
     except (asyncio.TimeoutError, Exception):
         robot_info = {
             "qq": str(get_current_robot_id()),
-            "nickname": "GracyBot",
+            "nickname": "LoyanBot",
             "avatar_url": None,
             "friend_count": 0,
             "group_count": 0,
@@ -557,7 +557,7 @@ async def handle_status_cmd(target: str, chat_type: str):
         img_path = await drawer.draw()
         t_send = time.time()
         logger.warning(f"⏱ 绘图={t_send - t_draw:.1f}s")
-        # 图片消息（通过 GracyAdapter 适配层发送）
+        # 图片消息（通过 LoyanBot 适配层发送）
         if await loyan_send_msg(target, LoyanImage(file_path=img_path), chat_type=chat_type):
             t_end = time.time()
             logger.warning(f"⏱ 发送={t_end - t_send:.1f}s | 总={t_end - t_start:.1f}s")
