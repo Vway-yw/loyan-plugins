@@ -1,0 +1,21 @@
+[plugin]
+name        = "Loyan配置"
+version     = "2.0.0"
+author      = "Vway-yw"
+description = "获取 LoyanBot 安装与配置过程"
+ "https://raw.githubusercontent.com/Vway-yw/loyan-config/main/icon.svg"
+category    = "Tool"
+tags        = ['教程', '安装', '配置']
+repo        = "Vway-yw/loyan-config"
+docs_url    = "https://github.com/Vway-yw/loyan-config"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_gracy_get"
+
+[trigger]
+commands       = ["/loyan get", "/loyan安装", "/loyan配置"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+command_descriptions = {"/loyan get" = "获取 LoyanBot 安装与配置过程", "/loyan安装" = "查看 LoyanBot 安装配置教程"}

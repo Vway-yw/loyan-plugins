@@ -1,0 +1,28 @@
+# SysInfo_plugin — GracyBot 插件元数据
+# 必填字段缺一不可，PluginManager 严格校验
+
+[plugin]
+name        = "SysInfo_plugin"
+version     = "1.2.0"
+author      = "Vway-yw"
+description = "系统状态查询插件，展示机器人运行信息、系统资源占用等详情"
+ "https://raw.githubusercontent.com/Vway-yw/loyan-sysinfo/main/icon.svg"
+category    = "Tool"
+tags        = ['系统信息', '状态']
+repo        = "Vway-yw/loyan-sysinfo"
+docs_url    = "https://github.com/Vway-yw/loyan-sysinfo"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_sysinfo_plugin"
+
+[trigger]
+commands       = ["/运行状态", "/info", "/status"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/运行状态" = "查看机器人运行时间、CPU/内存占用"
+"/info"   = "查看机器人基本信息"
+"/status" = "查看机器人当前状态"

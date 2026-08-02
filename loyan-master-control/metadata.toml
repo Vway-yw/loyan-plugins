@@ -1,0 +1,26 @@
+[plugin]
+name        = "MasterControl"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "主人控制面板 - 群聊管理、跨群发消息"
+ "https://raw.githubusercontent.com/Vway-yw/loyan-master-control/main/icon.svg"
+category    = "Admin"
+tags        = ['管理', '群聊', '主人']
+repo        = "Vway-yw/loyan-master-control"
+docs_url    = "https://github.com/Vway-yw/loyan-master-control"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_master"
+
+[trigger]
+commands       = ["/群列表", "/发群", "/set群名"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+priority       = 10
+
+[trigger.command_descriptions]
+"/群列表"         = "查看机器人所在的所有群聊ID"
+"/发群 <群ID> <消息>" = "向指定群聊发送消息，支持 reply:<消息ID> 或 qq:<QQ号> 指定回复"
+"/set群名 <群ID> <名称>" = "给群设置备注名"
