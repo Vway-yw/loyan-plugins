@@ -1,0 +1,27 @@
+[plugin]
+name        = "小说阅读"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "小说搜索与阅读：搜索书名、选择书籍、章节阅读、翻页"
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+category    = "Entertainment"
+tags        = ["小说", "阅读", "搜索"]
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_novel"
+
+[trigger]
+commands       = ["/小说", "/搜书", "/搜索小说", "/章节"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/小说"     = "📖 搜索小说（/小说 斗破苍穹），序号选书，序号+章节阅读"
+"/搜书"     = "🔍 同 /小说，搜索小说"
+"/章节"     = "📄 阅读选中书籍的章节（/章节 1）"
