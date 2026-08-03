@@ -22,4 +22,8 @@ commands       = ["/loyan get", "/loyan安装", "/loyan配置"]
 chat_type      = ["private", "group"]
 permission     = "all"
 is_at_required = false
-command_descriptions = {"/loyan get" = "获取 LoyanBot 安装与配置过程", "/loyan安装" = "查看 LoyanBot 安装配置教程"}
+
+[trigger.command_descriptions]
+"/loyan get"  = "获取 LoyanBot 安装与配置过程"
+"/loyan安装"    = "查看 LoyanBot 安装配置教程"
+"/loyan配置"    = "查看 LoyanBot 配置教程"
