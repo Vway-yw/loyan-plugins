@@ -1,0 +1,29 @@
+[plugin]
+name        = "天气预报"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询城市天气实况与未来预报，免key实时数据"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['天气', '预报', '生活']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_weather"
+
+[trigger]
+commands       = ["/天气", "/天气预报", "/weather"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/天气"       = "🌤️ 查询天气（/天气 北京，默认北京）"
+"/天气预报"   = "🌤️ 同 /天气，查询天气"
+"/weather"    = "🌤️ 同 /天气，查询天气"
