@@ -9,7 +9,7 @@ dependencies = []
 
 description = "和平精英热点/爆料/攻略查询，30分钟自动刷新保证时效"
 category    = "Entertainment"
-tags        = [['和平精英', '热点', '爆料', '攻略', '游戏']]
+tags        = ['和平精英', '热点', '爆料', '攻略', '游戏']
 repo        = "Vway-yw/loyan-hpjy"
 docs_url    = "https://github.com/Vway-yw/loyan-hpjy"
 min_framework = "0.1.0"
