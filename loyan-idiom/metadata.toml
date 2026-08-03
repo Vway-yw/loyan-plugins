@@ -1,0 +1,28 @@
+[plugin]
+name        = "成语接龙"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "与机器人成语接龙游戏，支持提示与限时"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['成语', '接龙', '游戏']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_idiom"
+
+[trigger]
+commands       = ["/成语", "/成语接龙"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/成语"       = "🎮 开始成语接龙（/成语 提示 /成语 结束）"
+"/成语接龙"   = "🎮 同 /成语，开始成语接龙"
