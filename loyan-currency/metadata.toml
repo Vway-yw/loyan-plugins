@@ -1,0 +1,29 @@
+[plugin]
+name        = "汇率转换"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "实时汇率查询与货币转换，免key"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['汇率', '货币', '转换']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_currency"
+
+[trigger]
+commands       = ["/汇率", "/汇率查询", "/currency"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/汇率"         = "💱 实时汇率（/汇率 USD 100 转换）"
+"/汇率查询"       = "💱 同 /汇率"
+"/currency"   = "💱 同 /汇率"

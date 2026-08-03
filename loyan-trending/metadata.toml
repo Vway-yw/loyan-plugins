@@ -1,0 +1,29 @@
+[plugin]
+name        = "GitHub热门"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查看 GitHub 热门仓库（日/周/月/按语言）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Dev"
+tags        = ['GitHub', '热门', '开源', '开发']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_trending"
+
+[trigger]
+commands       = ["/trending", "/github热门", "/github热榜"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/trending"   = "🔥 GitHub 热门仓库（/trending 周 /trending 月 /trending python）"
+"/github热门"   = "🔥 同 /trending"
+"/github热榜"   = "🔥 同 /trending"

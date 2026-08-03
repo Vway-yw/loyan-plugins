@@ -1,0 +1,29 @@
+[plugin]
+name        = "NASA每日一图"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "NASA 每日天文图片与说明"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['NASA', '天文', '图片']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_nasa"
+
+[trigger]
+commands       = ["/nasa", "/每日一图", "/天文"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/nasa"       = "🛰️ NASA 每日一图（/nasa 2026-08-01 指定日期）"
+"/每日一图"       = "🛰️ 同 /nasa"
+"/天文"         = "🛰️ 同 /nasa"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "一言"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "一言/诗词/动漫/名言/英文句子"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['一言', '句子', '名言', '诗词']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_hitokoto"
+
+[trigger]
+commands       = ["/一言", "/语录", "/句子"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/一言"         = "💬 随机一言（/一言 诗词 /一言 动漫 /一言 名言）"
+"/语录"         = "💬 同 /一言"
+"/句子"         = "💬 同 /一言"

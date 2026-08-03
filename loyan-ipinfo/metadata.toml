@@ -1,0 +1,29 @@
+[plugin]
+name        = "IP查询"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询 IP 归属地与网络信息"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['IP', '查询', '网络']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_ip"
+
+[trigger]
+commands       = ["/ip", "/ipinfo", "/查询IP"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/ip"         = "🌐 IP 归属地查询（/ip 8.8.8.8）"
+"/ipinfo"     = "🌐 同 /ip"
+"/查询IP"       = "🌐 同 /ip"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "翻译"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "中英互译及多语言翻译，免费"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['翻译', '语言']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_translate"
+
+[trigger]
+commands       = ["/翻译", "/translate", "/译"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/翻译"         = "🌐 翻译（/翻译 hello world 自动中英互译）"
+"/translate"  = "🌐 同 /翻译"
+"/译"          = "🌐 同 /翻译"
