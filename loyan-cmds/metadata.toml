@@ -1,0 +1,30 @@
+[plugin]
+name        = "系统指令"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "Linux/Windows 常用实用指令查询，自动识别系统"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['Linux', 'Windows', '指令', '命令', '教程']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_cmds"
+
+[trigger]
+commands       = ["/指令", "/命令", "/linux指令", "/windows指令"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/指令"         = "🖥️ 系统指令查询（/指令 linux /指令 windows /指令 网络）"
+"/命令"         = "🖥️ 同 /指令，系统指令查询"
+"/linux指令"    = "🐧 查看 Linux 常用指令"
+"/windows指令"  = "🪟 查看 Windows 常用指令"
