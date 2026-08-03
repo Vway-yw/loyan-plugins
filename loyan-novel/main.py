@@ -1,4 +1,14 @@
-"""小说插件 — 搜索小说 + 章节阅读 + 翻页（Playwright 渲染笔趣阁）"""
+"""小说阅读 — 搜索小说、选择书籍、章节阅读、翻页
+
+命令：
+  /小说 <书名>       — 搜索小说（如：/小说 斗破苍穹）
+  /小说 序号         — 选择书籍，加载章节列表
+  /小说 序号 章节    — 阅读指定章节
+  /章节 序号         — 阅读当前书籍指定章节
+  /下一页 /上一页    — 翻页（每页 500 字）
+  /尾页 /第N页       — 跳转页
+"""
+
 import asyncio
 import re
 import time
@@ -11,24 +21,22 @@ from loyan.plugins.core.reading import get_reading, set_reading
 
 logger = get_logger("小说")
 
+# ── 常量定义 ──
 BASE = "https://www.bqgui.cc"
 PAGE_SIZE = 500
-CACHE_TTL = 600  # 章节正文缓存 10 分钟
-
+CACHE_TTL = 600
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
 
-# 搜索缓存: query -> (time, books)
+# ── 模块级状态 ──
 _search_cache: Dict[str, tuple] = {}
-# 章节正文缓存: url -> (time, text)
 _content_cache: Dict[str, tuple] = {}
-
 _browser = None
 _browser_lock = asyncio.Lock()
 
 
 async def _get_browser():
-    """懒加载 Playwright 浏览器实例"""
+    """懒加载 Playwright 浏览器实例（首次调用时启动）"""
     global _browser
     if _browser is None or not _browser.is_connected():
         from playwright.async_api import async_playwright
@@ -55,7 +63,7 @@ async def _fetch_page(url: str) -> str:
 
 
 async def _search_books(keyword: str) -> List[Dict]:
-    """搜索书籍"""
+    """搜索书籍，返回书籍列表（带缓存）"""
     now = time.time()
     cached = _search_cache.get(keyword)
     if cached and now - cached[0] < CACHE_TTL:
@@ -68,7 +76,7 @@ async def _search_books(keyword: str) -> List[Dict]:
         if any(b["url"] == href for b in books):
             continue
         if any(x in title for x in bad):
-            continue  # 过滤擦边书籍
+            continue
         books.append({"title": title, "url": href})
         if len(books) >= 10:
             break
@@ -78,7 +86,7 @@ async def _search_books(keyword: str) -> List[Dict]:
 
 
 async def _get_chapters(book_url: str) -> List[Dict]:
-    """获取书籍章节列表"""
+    """获取书籍章节列表（跳过非正文章节）"""
     html = await _fetch_page(f"{BASE}{book_url}")
     chapters = []
     skip_words = ("角色传记", "上架感言", "访谈", "人物出场", "完结感言", "作家的话")
@@ -87,7 +95,7 @@ async def _get_chapters(book_url: str) -> List[Dict]:
         if any(c["url"] == href for c in chapters):
             continue
         if any(w in title for w in skip_words):
-            continue  # 跳过非正文章节
+            continue
         chapters.append({"title": title, "url": href})
         if len(chapters) >= 500:
             break
@@ -95,7 +103,7 @@ async def _get_chapters(book_url: str) -> List[Dict]:
 
 
 async def _get_chapter_text(url: str) -> Optional[str]:
-    """获取章节正文（带缓存）"""
+    """获取章节正文（带缓存），失败返回 None"""
     now = time.time()
     cached = _content_cache.get(url)
     if cached and now - cached[0] < CACHE_TTL:
@@ -117,7 +125,6 @@ async def _get_chapter_text(url: str) -> Optional[str]:
         ln = ln.strip()
         if not ln:
             continue
-        # 过滤广告行：含 * 分隔的小说站广告 或 常见广告词
         if re.search(r"[*＃#]|更多.{0,4}精彩|在线阅读|最新章节|请收藏|手机站|下载地址", ln):
             if len(ln) < 40:
                 continue
@@ -129,7 +136,8 @@ async def _get_chapter_text(url: str) -> Optional[str]:
     return text or None
 
 
-def _pick_index(ctx, maxn: int) -> Optional[int]:
+def _pick_index(ctx: PluginContext, maxn: int) -> Optional[int]:
+    """从命令参数解析序号（1~maxn）"""
     rest = (ctx.raw_text or "").strip()
     parts = rest.split(None, 1)
     if len(parts) > 1 and parts[1].strip().isdigit():
@@ -140,7 +148,7 @@ def _pick_index(ctx, maxn: int) -> Optional[int]:
 
 
 async def _show_reading(ctx: PluginContext, url: str, title: str, idx: int, page: int):
-    """显示章节正文某一页"""
+    """显示章节正文指定页"""
     uid = str(getattr(ctx, "sender_id", "") or "")
     text = await _get_chapter_text(url)
     if not text:
@@ -158,10 +166,12 @@ async def _show_reading(ctx: PluginContext, url: str, title: str, idx: int, page
     await ctx.reply("\n".join(lines))
 
 
+# ── 命令处理 ──
+
 @on_command("/小说", "/搜书", "/搜索小说")
 @plugin_handler
 async def handle_novel(ctx: PluginContext):
-    """搜索小说：/小说 <书名>；/小说 序号 选书；/小说 序号 章节 阅读"""
+    """搜索小说 / 选择书籍 / 阅读章节"""
     rest = (ctx.raw_text or "").strip()
     parts = rest.split(None, 2)
     if len(parts) < 2:
@@ -170,7 +180,6 @@ async def handle_novel(ctx: PluginContext):
     keyword = parts[1].strip()
     uid = str(getattr(ctx, "sender_id", "") or "")
 
-    # 阅读已有选择：/小说 序号 章节
     if len(parts) > 2 and parts[2].strip().isdigit():
         c = get_reading(uid)
         if c and c.get("mode") == "novel_books":
@@ -195,7 +204,6 @@ async def handle_novel(ctx: PluginContext):
             await _show_reading(ctx, chapters[ch_idx - 1]["url"], chapters[ch_idx - 1]["title"], ch_idx, 1)
             return
 
-    # 序号选书
     if keyword.isdigit():
         c = get_reading(uid)
         if not c or c.get("mode") != "novel_books":
@@ -222,7 +230,6 @@ async def handle_novel(ctx: PluginContext):
         await ctx.reply("\n".join(lines))
         return
 
-    # 搜索
     await ctx.reply(f"🔍 正在搜索「{keyword}」...")
     books = await _search_books(keyword)
     if not books:
@@ -240,7 +247,7 @@ async def handle_novel(ctx: PluginContext):
 @on_command("/章节")
 @plugin_handler
 async def handle_chapter(ctx: PluginContext):
-    """直接阅读某章节：/章节 12"""
+    """阅读当前书籍指定章节：/章节 序号"""
     uid = str(getattr(ctx, "sender_id", "") or "")
     c = get_reading(uid)
     if not c or c.get("mode") != "novel_books" or not c.get("chapters"):

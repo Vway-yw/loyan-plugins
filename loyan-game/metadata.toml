@@ -1,19 +1,16 @@
 [plugin]
-name        = "游戏插件"
-version     = "1.0.0"
-author      = "Vway-yw"
-priority    = 50
-icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
-dependencies = []
-
-description = "钓鱼/挖矿/打猎等小游戏，支持金币、经验、等级、排行榜"
-
-category    = "Entertainment"
-tags        = ['游戏', '钓鱼', '挖矿', '打猎', '签到', '排行榜']
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
-min_framework = "0.1.0"
-
+name           = "游戏插件"
+version        = "1.0.0"
+author         = "Vway-yw"
+description    = "钓鱼/挖矿/打猎等小游戏，支持金币、经验、等级、排行榜"
+priority       = 50
+icon           = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies   = []
+category       = "Entertainment"
+tags           = ['游戏', '钓鱼', '挖矿', '打猎', '签到', '排行榜']
+repo           = "Vway-yw/loyan-plugins"
+docs_url       = "https://github.com/Vway-yw/loyan-plugins"
+min_framework  = "0.1.0"
 [handler]
 entry       = "handle_game"
 

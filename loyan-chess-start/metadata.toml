@@ -1,19 +1,16 @@
 [plugin]
-name        = "象棋启动器"
-version     = "1.0.0"
-author      = "Vway-yw"
-priority    = 50
-icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
-dependencies = []
-
-description = "检测象棋服务器是否正常运行"
-
-category    = "Entertainment"
-tags        = ['象棋', '游戏', '服务器检测']
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
-min_framework = "0.1.0"
-
+name           = "象棋启动器"
+version        = "1.0.0"
+author         = "Vway-yw"
+description    = "检测象棋服务器是否正常运行"
+priority       = 50
+icon           = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies   = []
+category       = "Entertainment"
+tags           = ['象棋', '游戏', '服务器检测']
+repo           = "Vway-yw/loyan-plugins"
+docs_url       = "https://github.com/Vway-yw/loyan-plugins"
+min_framework  = "0.1.0"
 [handler]
 entry       = "handle_chess_status"
 

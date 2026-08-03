@@ -1,19 +1,16 @@
 [plugin]
-name        = "MasterControl"
-version     = "1.0.0"
-author      = "Vway-yw"
-priority    = 50
-icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
-dependencies = []
-
-description = "主人控制面板 - 群聊管理、跨群发消息"
-
-category    = "Manage"
-tags        = ['管理', '群聊', '主人']
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
-min_framework = "0.1.0"
-
+name           = "MasterControl"
+version        = "1.0.0"
+author         = "Vway-yw"
+description    = "主人控制面板 - 群聊管理、跨群发消息"
+priority       = 50
+icon           = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies   = []
+category       = "Manage"
+tags           = ['管理', '群聊', '主人']
+repo           = "Vway-yw/loyan-plugins"
+docs_url       = "https://github.com/Vway-yw/loyan-plugins"
+min_framework  = "0.1.0"
 [handler]
 entry       = "handle_master"
 

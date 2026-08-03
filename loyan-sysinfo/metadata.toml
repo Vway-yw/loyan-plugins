@@ -2,21 +2,18 @@
 # 必填字段缺一不可，PluginManager 严格校验
 
 [plugin]
-name        = "SysInfo_plugin"
-version     = "1.2.0"
-author      = "Vway-yw"
-priority    = 50
-icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
-dependencies = []
-
-description = "系统状态查询插件，展示机器人运行信息、系统资源占用等详情"
-
-category    = "Tools"
-tags        = ['系统信息', '状态']
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
-min_framework = "0.1.0"
-
+name           = "SysInfo_plugin"
+version        = "1.2.0"
+author         = "Vway-yw"
+description    = "系统状态查询插件，展示机器人运行信息、系统资源占用等详情"
+priority       = 50
+icon           = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies   = []
+category       = "Tools"
+tags           = ['系统信息', '状态']
+repo           = "Vway-yw/loyan-plugins"
+docs_url       = "https://github.com/Vway-yw/loyan-plugins"
+min_framework  = "0.1.0"
 [handler]
 entry       = "handle_sysinfo_plugin"
 
