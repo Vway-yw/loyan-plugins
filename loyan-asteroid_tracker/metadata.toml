@@ -1,0 +1,29 @@
+[plugin]
+name        = "小行星监测"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "NASA 近地小行星数据查询"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['小行星', 'NASA', '天文']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_asteroid"
+
+[trigger]
+commands       = ["/小行星", "/近地小行星", "/asteroid"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/小行星"        = "☄️ 近地小行星监测（/小行星 3）"
+"/近地小行星"      = "☄️ 同 /小行星"
+"/asteroid"   = "☄️ 同 /小行星"

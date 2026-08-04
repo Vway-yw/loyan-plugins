@@ -1,0 +1,29 @@
+[plugin]
+name        = "英语词典"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "英文单词释义查询（免费）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['词典', '英语', '单词']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_dict"
+
+[trigger]
+commands       = ["/词典", "/dict", "/英语词典"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/词典"         = "📖 英文单词查询（/词典 hello）"
+"/dict"       = "📖 同 /词典"
+"/英语词典"       = "📖 同 /词典"

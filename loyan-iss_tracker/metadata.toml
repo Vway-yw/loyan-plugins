@@ -1,0 +1,29 @@
+[plugin]
+name        = "ISS定位"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "国际空间站实时位置"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['ISS', '空间站', '天文']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_iss"
+
+[trigger]
+commands       = ["/iss", "/空间站", "/国际空间站"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/iss"        = "🛰️ 国际空间站实时位置"
+"/空间站"        = "🛰️ 同 /iss"
+"/国际空间站"      = "🛰️ 同 /iss"

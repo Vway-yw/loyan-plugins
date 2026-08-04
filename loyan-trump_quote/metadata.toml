@@ -1,0 +1,29 @@
+[plugin]
+name        = "川普语录"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机川普名言"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['川普', '语录', '名言']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_trump"
+
+[trigger]
+commands       = ["/川普", "/川普语录", "/trump"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/川普"         = "🗽 随机川普语录"
+"/川普语录"       = "🗽 同 /川普"
+"/trump"      = "🗽 同 /川普"

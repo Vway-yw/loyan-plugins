@@ -1,0 +1,29 @@
+[plugin]
+name        = "Kanye语录"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机 Kanye West 名言"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['Kanye', '语录', '音乐']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_kanye"
+
+[trigger]
+commands       = ["/kanye", "/侃爷", "/kanye语录"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/kanye"      = "🎤 随机 Kanye 语录"
+"/侃爷"         = "🎤 同 /kanye"
+"/kanye语录"    = "🎤 同 /kanye"

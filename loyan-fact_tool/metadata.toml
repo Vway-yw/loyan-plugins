@@ -1,0 +1,29 @@
+[plugin]
+name        = "冷知识"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机有趣冷知识"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['冷知识', '事实', '科普']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_fact"
+
+[trigger]
+commands       = ["/冷知识", "/fact", "/无聊事实"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/冷知识"        = "🤓 随机冷知识"
+"/fact"       = "🤓 同 /冷知识"
+"/无聊事实"       = "🤓 同 /冷知识"
