@@ -1,17 +1,22 @@
+"""表情包生成 — 互动表情包生成，支持自定义文字和模板
+
+命令：
+  /生成表情 <关键词> [QQ号] — 生成表情包
+  /表情 — 表情包帮助"""
+
 import asyncio
 import io
 import json
-import logging
 import os
 import re
 
 import aiohttp
 
-from graci import on_command, on_regex, plugin_handler, PluginContext
+from graci import get_logger, on_command, on_regex, plugin_handler, PluginContext
 from graci import on_fallback as _on_fallback
 from graci import LoyanImage
 
-_logger = logging.getLogger("Loyan.表情包")
+_logger = get_logger("表情包生成")
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(DATA_DIR, "templates")

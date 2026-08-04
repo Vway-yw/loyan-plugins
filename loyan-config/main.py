@@ -1,3 +1,8 @@
+"""Loyan配置 — 获取 LoyanBot 安装与 Web 可视化配置过程
+
+命令：
+  /loyan get /loyan安装 /loyan配置 — 查看安装配置教程"""
+
 from graci import on_command, plugin_handler, PluginContext
 
 

@@ -1,13 +1,12 @@
 """主人控制面板 — 群聊管理、跨群发消息"""
 
-import logging
 import time
 from datetime import datetime
 
-from graci import on_command, plugin_handler, PluginContext
+from graci import get_logger, on_command, plugin_handler, PluginContext
 from graci import LoyanText, LoyanImage
 
-_logger = logging.getLogger("Loyan.MasterControl")
+_logger = get_logger("MasterControl")
 
 
 def _is_master(ctx: PluginContext) -> bool:

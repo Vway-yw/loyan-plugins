@@ -1,12 +1,16 @@
+"""象棋启动器 — 检测象棋服务器是否正常运行
+
+命令：
+  /chess status — 检测象棋服务器状态"""
+
 import asyncio
-import logging
 from urllib.parse import urlparse
 
 import websockets
 
-from graci import on_command, plugin_handler, PluginContext
+from graci import get_logger, on_command, plugin_handler, PluginContext
 
-_logger = logging.getLogger("Loyan.象棋启动器")
+_logger = get_logger("象棋启动器")
 
 PING_URL = "ws://api.cchess.moyegame.com:10000/"
 

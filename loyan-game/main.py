@@ -1,14 +1,18 @@
+"""游戏插件 — 钓鱼/挖矿/打猎等小游戏
+
+命令：
+  /钓鱼 /挖矿 /打猎 /签到 /打工 /我的信息 /排行榜 /赌大小 /恢复 /升级 /改名 /商店 /背包 /使用 /购买 /挖宝 /转盘 /打BOSS /任务 /成就 /技能 /大赛 /参赛 /game"""
+
 import json
-import logging
 import os
 import random
 import time
 import asyncio
 from datetime import datetime, timezone
 
-from graci import LoyanImage
+from graci import get_logger, LoyanImage
 
-logger = logging.getLogger("Loyan.游戏")
+logger = get_logger("游戏插件")
 
 # 串行化游戏状态读写，避免并发覆盖数据
 _game_lock = asyncio.Lock()
@@ -737,6 +741,7 @@ async def _make_image_seg(path):
 
 
 async def handle_game(ctx):
+    """游戏主入口：处理游戏指令"""
     async with _game_lock:
         return await _handle_game_locked(ctx)
 

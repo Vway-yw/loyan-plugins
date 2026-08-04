@@ -1,3 +1,8 @@
+"""SysInfo_plugin — 系统状态查询插件
+
+命令：
+  /运行状态 /info /status — 查看机器人运行信息"""
+
 import subprocess
 import platform
 import time
