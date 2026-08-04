@@ -1,0 +1,29 @@
+[plugin]
+name        = "文本反转"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本反转/倒序"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['反转', '文本']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_reverse"
+
+[trigger]
+commands       = ["/反转", "/倒序", "/reverse"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/反转"         = "🔁 文本反转（/反转 hello）"
+"/倒序"         = "🔁 同 /反转"
+"/reverse"    = "🔁 同 /反转"

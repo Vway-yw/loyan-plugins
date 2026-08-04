@@ -1,0 +1,29 @@
+[plugin]
+name        = "文本对齐"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本居中/对齐显示"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['对齐', '居中']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_align"
+
+[trigger]
+commands       = ["/对齐", "/居中", "/center"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/对齐"         = "📐 文本对齐（/对齐 你好）"
+"/居中"         = "📐 同 /对齐"
+"/center"     = "📐 同 /对齐"

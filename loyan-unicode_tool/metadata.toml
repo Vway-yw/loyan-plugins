@@ -1,0 +1,29 @@
+[plugin]
+name        = "Unicode工具"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "Unicode 编解码"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Dev"
+tags        = ['Unicode', '编码']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_unicode"
+
+[trigger]
+commands       = ["/unicode", "/unicode编码", "/unicode解码"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/unicode"    = "🔤 Unicode 编解码（/unicode 编码 你好）"
+"/unicode编码"  = "🔤 Unicode 编码"
+"/unicode解码"  = "🔤 Unicode 解码"

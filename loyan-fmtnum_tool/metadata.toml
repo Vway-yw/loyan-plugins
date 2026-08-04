@@ -1,0 +1,29 @@
+[plugin]
+name        = "数字格式化"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "千分位/进制格式化"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['千分位', '格式化']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_fmt_num"
+
+[trigger]
+commands       = ["/千分位", "/格式化数字", "/formatnum"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/千分位"        = "🔢 数字格式化（/千分位 1234567.89）"
+"/格式化数字"      = "🔢 同 /千分位"
+"/formatnum"  = "🔢 同 /千分位"

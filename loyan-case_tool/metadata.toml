@@ -1,0 +1,30 @@
+[plugin]
+name        = "大小写转换"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本大小写转换"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['大小写', '文本']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_case"
+
+[trigger]
+commands       = ["/大小写", "/大写", "/小写", "/case"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/大小写"        = "🔠 大小写自动转换"
+"/大写"         = "🔠 转大写"
+"/小写"         = "🔠 转小写"
+"/case"       = "🔠 同 /大小写"
