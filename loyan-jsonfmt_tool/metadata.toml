@@ -1,0 +1,29 @@
+[plugin]
+name        = "JSON格式化"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "JSON 格式化/校验"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Dev"
+tags        = ['JSON', '格式化', '开发']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_json"
+
+[trigger]
+commands       = ["/json", "/json格式化", "/json校验"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/json"       = "🔧 JSON 格式化与校验"
+"/json格式化"    = "🔧 同 /json"
+"/json校验"     = "🔧 同 /json"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "UUID生成"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成 UUID v4"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Dev"
+tags        = ['UUID', '开发', '生成']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_uuid"
+
+[trigger]
+commands       = ["/uuid", "/uuid生成", "/uuid4"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/uuid"       = "🔑 生成 UUID（/uuid 5）"
+"/uuid生成"     = "🔑 同 /uuid"
+"/uuid4"      = "🔑 同 /uuid"

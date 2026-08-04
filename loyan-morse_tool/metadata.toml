@@ -1,0 +1,29 @@
+[plugin]
+name        = "摩斯电码"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本与摩斯电码互转"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['摩斯', '电码']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_morse"
+
+[trigger]
+commands       = ["/摩斯", "/摩斯电码", "/morse"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/摩斯"         = "📡 摩斯电码（/摩斯 编码 hello）"
+"/摩斯电码"       = "📡 同 /摩斯"
+"/morse"      = "📡 同 /摩斯"

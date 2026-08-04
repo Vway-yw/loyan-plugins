@@ -1,0 +1,29 @@
+[plugin]
+name        = "表情符号"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "表情符号搜索/随机"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['emoji', '表情']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_emoji"
+
+[trigger]
+commands       = ["/表情符号", "/emoji", "/表情"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/表情符号"       = "🎨 表情符号（/表情符号 动物）"
+"/emoji"      = "🎨 同 /表情符号"
+"/表情"         = "🎨 同 /表情符号"

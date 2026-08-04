@@ -1,0 +1,29 @@
+[plugin]
+name        = "URL编解码"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "URL 编码/解码"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Dev"
+tags        = ['URL', '编码', '开发']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_url"
+
+[trigger]
+commands       = ["/url", "/url编码", "/url解码"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/url"        = "🔗 URL 编解码（/url 编码 你好）"
+"/url编码"      = "🔗 URL 编码"
+"/url解码"      = "🔗 URL 解码"

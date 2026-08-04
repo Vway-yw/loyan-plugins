@@ -1,0 +1,29 @@
+[plugin]
+name        = "ROT13/凯撒"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "ROT13 与凯撒密码"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['ROT13', '凯撒', '加密']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_rot"
+
+[trigger]
+commands       = ["/rot13", "/凯撒", "/caesar"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/rot13"      = "🔐 ROT13 变换（/rot13 hello）"
+"/凯撒"         = "🔐 凯撒密码（/凯撒 3 hello）"
+"/caesar"     = "🔐 同 /凯撒"

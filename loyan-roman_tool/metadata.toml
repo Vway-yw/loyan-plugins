@@ -1,0 +1,29 @@
+[plugin]
+name        = "罗马数字"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "阿拉伯/罗马数字互转"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['罗马数字', '转换']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_roman"
+
+[trigger]
+commands       = ["/罗马", "/罗马数字", "/roman"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/罗马"         = "🏛️ 罗马数字（/罗马 1999）"
+"/罗马数字"       = "🏛️ 同 /罗马"
+"/roman"      = "🏛️ 同 /罗马"
