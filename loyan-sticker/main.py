@@ -7,8 +7,8 @@ import re
 
 import aiohttp
 
-from loyan.core.decorators import on_command, on_regex, plugin_handler, PluginContext
-from loyan.core.decorators.registration import on_fallback as _on_fallback
+from graci import on_command, on_regex, plugin_handler, PluginContext
+from graci import on_fallback as _on_fallback
 from graci import LoyanImage
 
 _logger = logging.getLogger("Loyan.表情包")

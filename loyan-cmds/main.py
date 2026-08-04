@@ -12,9 +12,9 @@
 import re
 from typing import List, Optional, Tuple
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
-from loyan.plugins.core.reading import get_reading, set_reading
+from graci import get_reading, set_reading
 
 logger = get_logger("系统指令")
 
@@ -121,6 +121,11 @@ CATEGORY_KEYWORDS = {
     "包管理": ("安装", "包", "apt", "yum", "pip"),
     "磁盘": ("磁盘", "分区", "chkdsk", "lsblk"),
 }
+
+
+def _log_error(msg: str):
+    """记录错误日志"""
+    logger.error(msg)
 
 
 def _detect_system(text: str) -> Optional[str]:

@@ -14,7 +14,7 @@ import urllib.parse
 import urllib.request
 from typing import Dict, List, Optional
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 
 logger = get_logger("天气预报")

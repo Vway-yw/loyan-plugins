@@ -14,7 +14,7 @@ import time
 import urllib.request
 from typing import Dict, Optional
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 
 logger = get_logger("汇率")
@@ -82,6 +82,8 @@ async def handle_currency(ctx: PluginContext):
 
     await ctx.reply("💱 正在获取实时汇率...")
     data = await _get_rates()
+    if data is None:
+        logger.error("汇率获取失败")
     if not data:
         await ctx.reply("❌ 汇率获取失败，请稍后再试")
         return

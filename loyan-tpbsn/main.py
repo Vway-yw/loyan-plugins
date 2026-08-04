@@ -8,9 +8,9 @@ import urllib.request
 import http.cookiejar
 from typing import Dict, List, Optional
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
-from loyan.plugins.core.reading import get_reading, set_reading
+from graci import get_reading, set_reading
 
 logger = get_logger("逃跑吧少年")
 

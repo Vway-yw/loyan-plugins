@@ -88,6 +88,8 @@ async def _search_books(keyword: str) -> List[Dict]:
 async def _get_chapters(book_url: str) -> List[Dict]:
     """获取书籍章节列表（跳过非正文章节）"""
     html = await _fetch_page(f"{BASE}{book_url}")
+    if not html or "chaptercontent" not in html and "book" not in html:
+        logger.warning(f"章节列表页获取异常: {book_url}")
     chapters = []
     skip_words = ("角色传记", "上架感言", "访谈", "人物出场", "完结感言", "作家的话")
     for m in re.finditer(r'href="(/book/\d+/\d+\.html)"[^>]*>([^<]{2,50})', html):
@@ -117,6 +119,7 @@ async def _get_chapter_text(url: str) -> Optional[str]:
                 m = mm
                 break
     if not m:
+        logger.warning(f"章节正文容器未找到: {url}")
         return None
     text = re.sub(r"<[^>]+>", "", m.group(1))
     text = re.sub(r"\u3000", " ", text)

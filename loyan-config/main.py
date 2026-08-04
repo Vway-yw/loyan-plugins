@@ -1,4 +1,4 @@
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 
 
 @on_command("/loyan get", "/loyan安装", "/loyan配置")

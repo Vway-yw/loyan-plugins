@@ -15,7 +15,7 @@ import urllib.request
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 
 logger = get_logger("GitHubTrending")
@@ -93,6 +93,7 @@ async def handle_trending(ctx: PluginContext):
             _cache[cache_key] = (now, data)
 
     if not data or not data.get("items"):
+        logger.error("trending 获取失败")
         await ctx.reply("😢 获取失败，请稍后再试")
         return
 

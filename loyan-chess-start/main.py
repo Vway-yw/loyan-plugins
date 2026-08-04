@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 import websockets
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 
 _logger = logging.getLogger("Loyan.象棋启动器")
 

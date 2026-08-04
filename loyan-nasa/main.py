@@ -13,7 +13,7 @@ import time
 import urllib.request
 from typing import Dict, Optional
 
-from loyan.core.decorators import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger, LoyanImage, loyan_send_msg
 
 logger = get_logger("NASA")
