@@ -1,0 +1,29 @@
+[plugin]
+name        = "抽签"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机抽签（大吉/中吉/凶等）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['抽签', '运势', '占卜']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_lot"
+
+[trigger]
+commands       = ["/抽签", "/签", "/运势签"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/抽签"         = "🎋 随机抽签"
+"/签"          = "🎋 同 /抽签"
+"/运势签"        = "🎋 同 /抽签"

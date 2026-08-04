@@ -1,0 +1,29 @@
+[plugin]
+name        = "质数工具"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "质数判断/分解/区间质数"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['质数', '素数', '数学']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_prime"
+
+[trigger]
+commands       = ["/质数", "/素数", "/prime"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/质数"         = "🔢 质数工具（/质数 17 /质数 分解 100）"
+"/素数"         = "🔢 同 /质数"
+"/prime"      = "🔢 同 /质数"

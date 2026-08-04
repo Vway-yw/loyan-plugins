@@ -1,0 +1,29 @@
+[plugin]
+name        = "今日宜忌"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "今日宜忌与运势（本地算法）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['宜忌', '黄历', '运势']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_yiji"
+
+[trigger]
+commands       = ["/宜忌", "/今日宜忌", "/黄历"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/宜忌"         = "📅 今日宜忌"
+"/今日宜忌"       = "📅 同 /宜忌"
+"/黄历"         = "📅 同 /宜忌"

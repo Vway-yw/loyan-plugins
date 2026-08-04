@@ -1,0 +1,29 @@
+[plugin]
+name        = "人生格言"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机人生格言（本地库）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['格言', '名言', '励志']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_quote"
+
+[trigger]
+commands       = ["/格言", "/人生格言", "/座右铭"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/格言"         = "📜 随机人生格言"
+"/人生格言"       = "📜 同 /格言"
+"/座右铭"        = "📜 同 /格言"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "进制转换"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "十进制/二进制/八进制/十六进制互转"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['进制', '转换', '二进制']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_base"
+
+[trigger]
+commands       = ["/进制", "/进制转换", "/base"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/进制"         = "🔢 进制转换（/进制 255 16）"
+"/进制转换"       = "🔢 同 /进制"
+"/base"       = "🔢 同 /进制"
