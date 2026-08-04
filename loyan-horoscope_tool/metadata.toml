@@ -1,0 +1,29 @@
+[plugin]
+name        = "星座运势"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "星座运势与生日查星座（本地算法）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['星座', '运势', '占卜']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_sign"
+
+[trigger]
+commands       = ["/星座", "/星座运势", "/horoscope"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/星座"         = "♈ 星座运势（/星座 双子 /星座 1996-05-20）"
+"/星座运势"       = "♈ 同 /星座"
+"/horoscope"  = "♈ 同 /星座"

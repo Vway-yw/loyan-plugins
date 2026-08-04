@@ -1,0 +1,29 @@
+[plugin]
+name        = "MBTI测试"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "简易 MBTI 性格测试（本地）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['MBTI', '性格', '测试']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_mbti"
+
+[trigger]
+commands       = ["/mbti", "/性格测试", "/mbti测试"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/mbti"       = "🧬 MBTI 测试（/mbti 开始，或 /mbti ENTJ）"
+"/性格测试"       = "🧬 同 /mbti"
+"/mbti测试"     = "🧬 同 /mbti"

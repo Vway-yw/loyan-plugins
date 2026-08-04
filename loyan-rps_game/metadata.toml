@@ -1,0 +1,29 @@
+[plugin]
+name        = "石头剪刀布"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "与机器人猜拳"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['猜拳', '石头剪刀布', '游戏']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_rps"
+
+[trigger]
+commands       = ["/猜拳", "/石头剪刀布", "/rps"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/猜拳"         = "🎮 猜拳（/猜拳 石头）"
+"/石头剪刀布"      = "🎮 同 /猜拳"
+"/rps"        = "🎮 同 /猜拳"

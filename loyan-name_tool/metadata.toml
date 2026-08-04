@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机姓名"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成随机中文姓名"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['姓名', '名字', '随机']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_name"
+
+[trigger]
+commands       = ["/名字", "/随机名字", "/随机姓名"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/名字"         = "👤 随机姓名（/名字 男 /名字 女）"
+"/随机名字"       = "👤 同 /名字"
+"/随机姓名"       = "👤 同 /名字"

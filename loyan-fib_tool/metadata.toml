@@ -1,0 +1,29 @@
+[plugin]
+name        = "斐波那契"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "斐波那契数列与黄金分割"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['斐波那契', '数学', '黄金分割']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_fib"
+
+[trigger]
+commands       = ["/斐波那契", "/fib", "/黄金分割"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/斐波那契"       = "🔢 斐波那契（/斐波那契 10）"
+"/fib"        = "🔢 同 /斐波那契"
+"/黄金分割"       = "🔢 同 /斐波那契"

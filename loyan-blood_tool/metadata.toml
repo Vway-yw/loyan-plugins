@@ -1,0 +1,29 @@
+[plugin]
+name        = "血型性格"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "血型性格与配对"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['血型', '性格']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_blood"
+
+[trigger]
+commands       = ["/血型", "/血型配对", "/blood"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/血型"         = "🩸 血型性格（/血型 A）"
+"/血型配对"       = "🩸 同 /血型"
+"/blood"      = "🩸 同 /血型"

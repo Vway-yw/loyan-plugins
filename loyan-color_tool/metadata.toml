@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机颜色"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成随机颜色代码"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['颜色', 'HEX', 'RGB']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_color"
+
+[trigger]
+commands       = ["/颜色", "/随机颜色", "/color"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/颜色"         = "🎨 随机颜色"
+"/随机颜色"       = "🎨 同 /颜色"
+"/color"      = "🎨 同 /颜色"

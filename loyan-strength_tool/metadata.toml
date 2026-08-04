@@ -1,0 +1,29 @@
+[plugin]
+name        = "密码强度"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "检测密码强度"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['密码', '强度', '安全']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_strength"
+
+[trigger]
+commands       = ["/强度", "/密码强度", "/strength"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/强度"         = "🔐 密码强度检测（/强度 Abc123!）"
+"/密码强度"       = "🔐 同 /强度"
+"/strength"   = "🔐 同 /强度"
