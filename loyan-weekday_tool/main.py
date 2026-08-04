@@ -9,7 +9,7 @@ from datetime import datetime
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("星期")
+logger = get_logger("星期计算")
 
 
 def _parse(s: str):

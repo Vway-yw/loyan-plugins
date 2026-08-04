@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger, LoyanImage
 
-logger = get_logger("犬种")
+logger = get_logger("狗狗品种")
 
 # ── 常量定义 ──
 BREEDS_URL = "https://dog.ceo/api/breeds/list/all"

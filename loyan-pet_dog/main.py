@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger, LoyanImage
 
-logger = get_logger("狗狗")
+logger = get_logger("随机狗狗")
 
 # ── 常量定义 ──
 API_URL = "https://dog.ceo/api/breeds/image/random"

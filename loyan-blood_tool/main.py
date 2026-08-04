@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("血型")
+logger = get_logger("血型性格")
 
 # ── 常量定义 ──
 BLOOD_INFO = {

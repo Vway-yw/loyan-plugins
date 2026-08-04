@@ -10,7 +10,7 @@ from datetime import datetime, timezone, timedelta
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("时区")
+logger = get_logger("多时区")
 
 # ── 常量定义 ──
 ZONES = {

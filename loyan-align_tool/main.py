@@ -6,7 +6,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("对齐")
+logger = get_logger("文本对齐")
 
 # ── 常量定义 ──
 MAX_LEN = 100

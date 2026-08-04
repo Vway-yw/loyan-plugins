@@ -9,7 +9,7 @@ from datetime import datetime
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("宜忌")
+logger = get_logger("今日宜忌")
 
 # ── 常量定义 ──
 DO_LIST = [

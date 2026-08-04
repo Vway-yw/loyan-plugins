@@ -6,7 +6,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("BMI")
+logger = get_logger("BMI计算")
 
 # ── 常量定义 ──
 RANGES = [

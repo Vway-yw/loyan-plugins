@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("进制")
+logger = get_logger("进制转换")
 
 # ── 常量定义 ──
 BASE_NAMES = {2: "二进制", 8: "八进制", 10: "十进制", 16: "十六进制"}

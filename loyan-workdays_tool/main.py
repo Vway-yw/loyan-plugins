@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("工作日")
+logger = get_logger("工作日计算")
 
 
 def _parse(s: str):

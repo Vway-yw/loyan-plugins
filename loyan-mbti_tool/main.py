@@ -8,7 +8,7 @@
 from graci import on_command, plugin_handler, PluginContext, get_logger
 from graci import get_reading, set_reading
 
-logger = get_logger("MBTI")
+logger = get_logger("MBTI测试")
 
 # ── 常量定义 ──
 QUESTIONS = [

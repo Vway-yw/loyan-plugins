@@ -17,7 +17,7 @@ from typing import Dict, Optional
 from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 
-logger = get_logger("汇率")
+logger = get_logger("汇率转换")
 
 # ── 常量定义 ──
 API_URL = "https://open.er-api.com/v6/latest/USD"

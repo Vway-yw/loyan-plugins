@@ -11,7 +11,7 @@ from datetime import datetime
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("星座")
+logger = get_logger("星座运势")
 
 # ── 常量定义 ──
 SIGNS = [

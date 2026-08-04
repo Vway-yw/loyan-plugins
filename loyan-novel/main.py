@@ -19,7 +19,7 @@ from loyan.core.decorators import on_command, plugin_handler, PluginContext
 from graci import get_logger
 from loyan.plugins.core.reading import get_reading, set_reading
 
-logger = get_logger("小说")
+logger = get_logger("小说阅读")
 
 # ── 常量定义 ──
 BASE = "https://www.bqgui.cc"

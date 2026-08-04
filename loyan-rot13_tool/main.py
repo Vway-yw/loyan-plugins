@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("ROT13")
+logger = get_logger("ROT13/凯撒")
 
 
 def _rot(text: str, shift: int) -> str:

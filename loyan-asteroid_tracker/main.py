@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("小行星")
+logger = get_logger("小行星监测")
 
 # ── 常量定义 ──
 API_URL = "https://api.nasa.gov/neo/rest/v1/feed?start_date={start}&end_date={end}&api_key=DEMO_KEY"

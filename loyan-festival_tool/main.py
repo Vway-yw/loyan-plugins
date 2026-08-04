@@ -9,7 +9,7 @@ from datetime import datetime
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("节日")
+logger = get_logger("今日节日")
 
 # ── 常量定义 ──
 # 公历固定节日

@@ -8,7 +8,7 @@ import json
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("JSON")
+logger = get_logger("JSON格式化")
 
 
 @on_command("/json", "/json格式化", "/json校验")

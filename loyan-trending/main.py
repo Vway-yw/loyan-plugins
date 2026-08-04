@@ -18,7 +18,7 @@ from typing import Dict, List, Optional
 from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 
-logger = get_logger("GitHubTrending")
+logger = get_logger("GitHub热门")
 
 # ── 常量定义 ──
 API_URL = "https://api.github.com/search/repositories?q=created:>{since}&sort=stars&order=desc&per_page={limit}"

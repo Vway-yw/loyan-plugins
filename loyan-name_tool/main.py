@@ -10,7 +10,7 @@ import random
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("名字")
+logger = get_logger("随机姓名")
 
 # ── 常量定义 ──
 SURNAMES = list("赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄和穆萧尹")

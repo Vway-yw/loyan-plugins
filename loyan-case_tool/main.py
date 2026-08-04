@@ -8,7 +8,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("大小写")
+logger = get_logger("大小写转换")
 
 # ── 常量定义 ──
 MAX_LEN = 1000

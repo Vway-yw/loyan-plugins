@@ -8,7 +8,7 @@ import re
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("强度")
+logger = get_logger("密码强度")
 
 
 def _strength(pwd: str) -> tuple:

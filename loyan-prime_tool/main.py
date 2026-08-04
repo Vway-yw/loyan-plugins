@@ -10,7 +10,7 @@ import math
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("质数")
+logger = get_logger("质数工具")
 
 
 def _is_prime(n: int) -> bool:

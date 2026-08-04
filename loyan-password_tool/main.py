@@ -12,7 +12,7 @@ import string
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("密码")
+logger = get_logger("随机密码")
 
 # ── 常量定义 ──
 DEFAULT_LEN = 16

@@ -19,7 +19,7 @@ from graci import (
 from graci import loyan_send_msg
 from graci import LoyanImage, LoyanText
 from graci import sanitize_log
-logger = get_logger("SysInfo")
+logger = get_logger("SysInfo_plugin")
 
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cache")
 

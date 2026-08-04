@@ -11,7 +11,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("ISS")
+logger = get_logger("ISS定位")
 
 # ── 常量定义 ──
 API_URL = "https://api.wheretheiss.at/v1/satellites/25544"

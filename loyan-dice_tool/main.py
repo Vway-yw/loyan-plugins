@@ -12,7 +12,7 @@ import random
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("骰子")
+logger = get_logger("骰子硬币")
 
 
 def _roll_dice(count: int, sides: int) -> list:

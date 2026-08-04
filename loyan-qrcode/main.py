@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger, LoyanImage
 
-logger = get_logger("二维码")
+logger = get_logger("二维码生成")
 
 # ── 常量定义 ──
 API_URL = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={data}"

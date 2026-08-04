@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("摩斯")
+logger = get_logger("摩斯电码")
 
 # ── 常量定义 ──
 MORSE = {

@@ -13,7 +13,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger, LoyanImage
 
-logger = get_logger("头像")
+logger = get_logger("随机头像")
 
 # ── 常量定义 ──
 API_URL = "https://api.dicebear.com/9.x/adventurer/svg?seed={seed}&backgroundColor=b6e3f4"

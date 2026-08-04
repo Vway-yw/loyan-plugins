@@ -9,7 +9,7 @@ import urllib.parse
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("URL")
+logger = get_logger("URL编解码")
 
 # ── 常量定义 ──
 MAX_LEN = 2000

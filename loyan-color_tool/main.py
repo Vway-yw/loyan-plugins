@@ -8,7 +8,7 @@ import random
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("颜色")
+logger = get_logger("随机颜色")
 
 # ── 常量定义 ──
 COLOR_NAMES = [

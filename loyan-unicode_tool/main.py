@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("Unicode")
+logger = get_logger("Unicode工具")
 
 
 def _encode(text: str) -> str:

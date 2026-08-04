@@ -10,7 +10,7 @@ import hashlib
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("哈希")
+logger = get_logger("哈希工具")
 
 # ── 常量定义 ──
 MAX_LEN = 2000

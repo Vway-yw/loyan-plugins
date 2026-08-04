@@ -9,7 +9,7 @@ import uuid
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("UUID")
+logger = get_logger("UUID生成")
 
 # ── 常量定义 ──
 MAX_N = 10

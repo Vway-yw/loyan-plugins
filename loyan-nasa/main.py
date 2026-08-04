@@ -16,7 +16,7 @@ from typing import Dict, Optional
 from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger, LoyanImage, loyan_send_msg
 
-logger = get_logger("NASA")
+logger = get_logger("NASA每日一图")
 
 # ── 常量定义 ──
 API_URL = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY{date}"

@@ -7,7 +7,7 @@
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("千分位")
+logger = get_logger("数字格式化")
 
 
 @on_command("/千分位", "/格式化数字", "/formatnum")

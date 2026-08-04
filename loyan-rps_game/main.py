@@ -9,7 +9,7 @@ import random
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("猜拳")
+logger = get_logger("石头剪刀布")
 
 # ── 常量定义 ──
 CHOICES = {"石头": 0, "剪刀": 1, "布": 2}

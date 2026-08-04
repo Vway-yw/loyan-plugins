@@ -15,7 +15,7 @@ from typing import Dict, Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("诗词")
+logger = get_logger("今日诗词")
 
 # ── 常量定义 ──
 API_URL = "https://v1.jinrishici.com/all.json{cat}"

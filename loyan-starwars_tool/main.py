@@ -13,7 +13,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("星战")
+logger = get_logger("星战百科")
 
 # ── 常量定义 ──
 API_URL = "https://swapi.py4e.com/api/{cat}/{id}/"

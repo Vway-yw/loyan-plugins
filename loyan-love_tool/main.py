@@ -8,7 +8,7 @@ import random
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("情话")
+logger = get_logger("土味情话")
 
 # ── 常量定义 ──
 LOVE_LINES = [

@@ -12,7 +12,7 @@ from graci import on_command, plugin_handler, PluginContext
 from graci import get_logger
 from graci import get_reading, set_reading
 
-logger = get_logger("HPJY热点")
+logger = get_logger("和平精英热点")
 
 SEARCH_URL = "https://weixin.sogou.com/weixin?type=2&query={query}"
 UA_LIST = [

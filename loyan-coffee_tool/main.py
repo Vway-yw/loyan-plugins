@@ -12,7 +12,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("咖啡")
+logger = get_logger("咖啡百科")
 
 # ── 常量定义 ──
 API_URL = "https://api.sampleapis.com/coffee/hot"

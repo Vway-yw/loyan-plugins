@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("大学")
+logger = get_logger("大学查询")
 
 # ── 常量定义 ──
 API_URL = "http://universities.hipolabs.com/search?country=China&name={name}"

@@ -12,7 +12,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("宝可梦")
+logger = get_logger("宝可梦图鉴")
 
 # ── 常量定义 ──
 API_URL = "https://pokeapi.co/api/v2/pokemon/{name}"

@@ -8,7 +8,7 @@ from datetime import datetime
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("年龄")
+logger = get_logger("年龄计算")
 
 
 def _parse(s: str):

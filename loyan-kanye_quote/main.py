@@ -11,7 +11,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
 
-logger = get_logger("Kanye")
+logger = get_logger("Kanye语录")
 
 # ── 常量定义 ──
 API_URL = "https://api.kanye.rest/"

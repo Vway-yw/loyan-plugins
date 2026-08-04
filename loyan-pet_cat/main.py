@@ -14,7 +14,7 @@ from typing import Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger, LoyanImage
 
-logger = get_logger("猫咪")
+logger = get_logger("随机猫咪")
 
 # ── 常量定义 ──
 API_URL = "https://api.thecatapi.com/v1/images/search"
