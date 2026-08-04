@@ -1,0 +1,29 @@
+[plugin]
+name        = "单位转换"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "长度/重量/温度/速度单位换算"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['单位', '转换', '换算']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_convert"
+
+[trigger]
+commands       = ["/转换", "/换算", "/单位换算"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/转换"         = "📏 单位转换（/转换 100km m /转换 36.5c f）"
+"/换算"         = "📏 同 /转换"
+"/单位换算"       = "📏 同 /转换"

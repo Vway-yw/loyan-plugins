@@ -1,0 +1,29 @@
+[plugin]
+name        = "备忘录"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "简单文本备忘（本地存储）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['备忘', '笔记', '待办']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_memo"
+
+[trigger]
+commands       = ["/备忘", "/memo", "/记一下"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/备忘"         = "📝 备忘（/备忘 添加 内容）"
+"/memo"       = "📝 同 /备忘"
+"/记一下"        = "📝 同 /备忘"

@@ -1,0 +1,31 @@
+[plugin]
+name        = "骰子硬币"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "掷骰子/抛硬币/随机数"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['骰子', '硬币', '随机', '游戏']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_dice"
+
+[trigger]
+commands       = ["/骰子", "/掷骰子", "/dice", "/硬币", "/抛硬币", "/coin", "/随机", "/随机数", "/rand"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/骰子"         = "🎲 掷骰子（/骰子 3 /骰子 2d20）"
+"/硬币"         = "🪙 抛硬币"
+"/随机"         = "🎲 随机数（/随机 1 100）"
+"/掷骰子"        = "🎲 同 /骰子"
+"/随机数"        = "🎲 同 /随机"

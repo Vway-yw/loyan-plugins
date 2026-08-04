@@ -1,0 +1,29 @@
+[plugin]
+name        = "计算器"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "数学表达式计算"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['计算', '计算器', '数学']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_calc"
+
+[trigger]
+commands       = ["/计算", "/calc", "/算一下"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/计算"         = "🧮 表达式计算（/计算 (1+2)*3）"
+"/calc"       = "🧮 同 /计算"
+"/算一下"        = "🧮 同 /计算"

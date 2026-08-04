@@ -1,0 +1,30 @@
+[plugin]
+name        = "哈希工具"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "MD5/SHA1/SHA256 文本哈希计算"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['哈希', 'MD5', 'SHA', '工具']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_hash"
+
+[trigger]
+commands       = ["/md5", "/sha1", "/sha256", "/哈希"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/md5"        = "🔐 计算 MD5 哈希（/md5 hello）"
+"/sha1"       = "🔐 计算 SHA1 哈希"
+"/sha256"     = "🔐 计算 SHA256 哈希"
+"/哈希"         = "🔐 哈希工具入口"

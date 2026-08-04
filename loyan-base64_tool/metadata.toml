@@ -1,0 +1,28 @@
+[plugin]
+name        = "Base64工具"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本与 Base64 互转"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['Base64', '编码', '解码', '工具']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_base64"
+
+[trigger]
+commands       = ["/base64", "/b64"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/base64"     = "🔤 Base64 编解码（/base64 编码 hello）"
+"/b64"        = "🔤 同 /base64"

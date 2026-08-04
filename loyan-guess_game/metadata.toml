@@ -1,0 +1,28 @@
+[plugin]
+name        = "猜数字"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "与机器人玩猜数字游戏"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['猜数字', '游戏']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_guess"
+
+[trigger]
+commands       = ["/猜数字", "/猜数", "/guess"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/猜数字"        = "🎮 猜数字游戏（1-100）"
+"/猜数"         = "🎮 同 /猜数字"

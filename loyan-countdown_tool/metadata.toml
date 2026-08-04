@@ -1,0 +1,28 @@
+[plugin]
+name        = "倒数日"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "记录重要日期并倒计时（本地存储）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['倒数日', '纪念日', '日期']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_countdown"
+
+[trigger]
+commands       = ["/倒数日", "/纪念日", "/countdowns"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/倒数日"        = "📅 倒数日（/倒数日 添加 生日 2026-10-01）"
+"/纪念日"        = "📅 同 /倒数日"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "字数统计"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "统计文本字数/字符/行数"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['字数', '统计', '文本']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_wordcount"
+
+[trigger]
+commands       = ["/字数", "/统计", "/wc"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/字数"         = "📊 字数统计（/字数 你好世界）"
+"/统计"         = "📊 同 /字数"
+"/wc"         = "📊 同 /字数"

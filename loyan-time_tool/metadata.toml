@@ -1,0 +1,31 @@
+[plugin]
+name        = "时间工具"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "当前时间/时间戳转换/倒计时"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['时间', '时间戳', '倒计时']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_time"
+
+[trigger]
+commands       = ["/时间", "/现在时间", "/几点", "/时间戳", "/timestamp", "/ts", "/倒计时", "/countdown"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/时间"         = "🕐 当前时间"
+"/时间戳"        = "⏱️ 时间戳转换（/时间戳 1750000000）"
+"/倒计时"        = "📅 倒计时（/倒计时 2026-10-01）"
+"/现在时间"       = "🕐 同 /时间"
+"/几点"         = "🕐 同 /时间"

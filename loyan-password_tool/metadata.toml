@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机密码"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成随机安全密码"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['密码', '随机', '安全']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_password"
+
+[trigger]
+commands       = ["/密码", "/随机密码", "/生成密码"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/密码"         = "🔑 生成随机密码（/密码 20 强）"
+"/随机密码"       = "🔑 同 /密码"
+"/生成密码"       = "🔑 同 /密码"
