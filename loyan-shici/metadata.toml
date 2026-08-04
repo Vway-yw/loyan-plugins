@@ -1,0 +1,29 @@
+[plugin]
+name        = "今日诗词"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "获取古诗词（按分类：山水/节日/爱情等）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['诗词', '古诗', '文化']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_shici"
+
+[trigger]
+commands       = ["/诗词", "/古诗", "/今日诗词"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/诗词"         = "📜 随机诗词（/诗词 山水 指定分类）"
+"/古诗"         = "📜 同 /诗词"
+"/今日诗词"       = "📜 同 /诗词"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机狗狗"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "获取随机狗狗图片"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['狗狗', '宠物', '图片']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_dog"
+
+[trigger]
+commands       = ["/狗狗", "/狗图", "/随机狗狗"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/狗狗"         = "🐶 随机狗狗图片"
+"/狗图"         = "🐶 同 /狗狗"
+"/随机狗狗"       = "🐶 同 /狗狗"

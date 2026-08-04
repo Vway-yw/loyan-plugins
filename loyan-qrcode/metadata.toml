@@ -1,0 +1,29 @@
+[plugin]
+name        = "二维码生成"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "文本/链接生成二维码图片"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['二维码', '生成']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_qrcode"
+
+[trigger]
+commands       = ["/二维码", "/qr", "/生成二维码"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/二维码"        = "📱 生成二维码（/二维码 https://example.com）"
+"/qr"         = "📱 同 /二维码"
+"/生成二维码"      = "📱 同 /二维码"

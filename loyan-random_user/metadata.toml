@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机用户"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成随机个人信息（测试/演示用）"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Tools"
+tags        = ['随机', '用户', '测试']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_randuser"
+
+[trigger]
+commands       = ["/随机用户", "/假人", "/randuser"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/随机用户"       = "👤 生成随机用户信息"
+"/假人"         = "👤 同 /随机用户"
+"/randuser"   = "👤 同 /随机用户"

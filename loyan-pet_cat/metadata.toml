@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机猫咪"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "获取随机猫咪图片"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['猫咪', '宠物', '图片']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_cat"
+
+[trigger]
+commands       = ["/猫咪", "/猫图", "/随机猫咪"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/猫咪"         = "🐱 随机猫咪图片"
+"/猫图"         = "🐱 同 /猫咪"
+"/随机猫咪"       = "🐱 同 /猫咪"

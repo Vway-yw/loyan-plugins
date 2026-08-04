@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机狐狸"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "获取随机狐狸图片"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['狐狸', '动物', '图片']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_fox"
+
+[trigger]
+commands       = ["/狐狸", "/狐图", "/随机狐狸"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/狐狸"         = "🦊 随机狐狸图片"
+"/狐图"         = "🦊 同 /狐狸"
+"/随机狐狸"       = "🦊 同 /狐狸"
