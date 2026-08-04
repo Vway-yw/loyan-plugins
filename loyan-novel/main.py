@@ -58,6 +58,9 @@ async def _fetch_page(url: str) -> str:
             await page.goto(url, timeout=30000, wait_until="domcontentloaded")
             await page.wait_for_timeout(2000)
             return await page.content()
+        except Exception as e:
+            logger.error(f"页面抓取失败 {url}: {e}")
+            return ""
         finally:
             await ctx.close()
 
@@ -111,6 +114,9 @@ async def _get_chapter_text(url: str) -> Optional[str]:
     if cached and now - cached[0] < CACHE_TTL:
         return cached[1]
     html = await _fetch_page(f"{BASE}{url}")
+    if not html:
+        logger.warning(f"章节页获取失败: {url}")
+        return None
     m = re.search(r'id="chaptercontent"[^>]*>(.*?)</div>', html, re.S)
     if not m:
         for pat in [r'class="content"[^>]*>(.*?)</div>', r'id="content"[^>]*>(.*?)</div>']:
