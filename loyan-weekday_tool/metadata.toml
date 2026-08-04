@@ -1,0 +1,29 @@
+[plugin]
+name        = "星期计算"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "日期星期/相差天数"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['星期', '日期']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_weekday"
+
+[trigger]
+commands       = ["/星期", "/星期几", "/weekday"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/星期"         = "📅 星期/日期差（/星期 2026-08-04）"
+"/星期几"        = "📅 同 /星期"
+"/weekday"    = "📅 同 /星期"

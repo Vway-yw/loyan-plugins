@@ -1,0 +1,29 @@
+[plugin]
+name        = "纪念日"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "恋爱/纪念日天数计算"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['纪念日', '恋爱']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_anniv"
+
+[trigger]
+commands       = ["/在一起", "/恋爱天数", "/纪念"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/在一起"        = "💑 在一起天数（/在一起 2023-01-01）"
+"/恋爱天数"       = "💑 同 /在一起"
+"/纪念"         = "💑 同 /在一起"

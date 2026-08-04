@@ -1,0 +1,29 @@
+[plugin]
+name        = "工作日计算"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "区间工作日统计"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['工作日', '统计']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_workdays"
+
+[trigger]
+commands       = ["/工作日", "/workdays", "/上班天数"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/工作日"        = "📅 工作日统计（/工作日 2026-08-01 2026-08-31）"
+"/workdays"   = "📅 同 /工作日"
+"/上班天数"       = "📅 同 /工作日"

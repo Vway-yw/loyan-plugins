@@ -1,0 +1,30 @@
+[plugin]
+name        = "番茄钟"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "番茄工作法计时"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['番茄钟', '专注', '效率']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_pomo_start"
+
+[trigger]
+commands       = ["/番茄开始", "/番茄钟", "/pomodoro", "/番茄", "/番茄剩余", "/番茄结束", "/番茄停止"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/番茄开始"       = "🍅 开始 25 分钟番茄钟"
+"/番茄"         = "🍅 查看剩余"
+"/番茄结束"       = "🍅 结束"
+"/番茄钟"        = "🍅 同 /番茄开始"

@@ -1,0 +1,29 @@
+[plugin]
+name        = "生肖查询"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "年份生肖查询"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['生肖', '年份']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_zodiac"
+
+[trigger]
+commands       = ["/生肖", "/生肖查询", "/zodiac"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/生肖"         = "🐉 生肖查询（/生肖 1996 /生肖 属马）"
+"/生肖查询"       = "🐉 同 /生肖"
+"/zodiac"     = "🐉 同 /生肖"
