@@ -1,0 +1,29 @@
+[plugin]
+name        = "星战百科"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询星球大战角色/星球/飞船"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['星战', '星球大战', '科幻']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_sw"
+
+[trigger]
+commands       = ["/星战", "/starwars", "/星球大战"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/星战"         = "🚀 星战百科（/星战 角色 1 /星战 星球 1）"
+"/starwars"   = "🚀 同 /星战"
+"/星球大战"       = "🚀 同 /星战"

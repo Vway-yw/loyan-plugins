@@ -1,0 +1,29 @@
+[plugin]
+name        = "咖啡百科"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机咖啡知识"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['咖啡', '饮品']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_coffee"
+
+[trigger]
+commands       = ["/咖啡", "/coffee", "/来杯咖啡"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/咖啡"         = "☕ 随机咖啡"
+"/coffee"     = "☕ 同 /咖啡"
+"/来杯咖啡"       = "☕ 同 /咖啡"

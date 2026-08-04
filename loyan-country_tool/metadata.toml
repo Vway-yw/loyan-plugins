@@ -1,0 +1,29 @@
+[plugin]
+name        = "国家信息"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询世界各国信息"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['国家', '地理', '世界']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_country"
+
+[trigger]
+commands       = ["/国家", "/国家查询", "/country"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/国家"         = "🌍 国家信息（/国家 中国 /国家 随机）"
+"/国家查询"       = "🌍 同 /国家"
+"/country"    = "🌍 同 /国家"

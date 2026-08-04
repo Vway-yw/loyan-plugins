@@ -1,0 +1,29 @@
+[plugin]
+name        = "宝可梦图鉴"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询宝可梦信息"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['宝可梦', '神奇宝贝', '图鉴']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_pokemon"
+
+[trigger]
+commands       = ["/宝可梦", "/pokemon", "/神奇宝贝"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/宝可梦"        = "⚡ 宝可梦查询（/宝可梦 pikachu /宝可梦 随机）"
+"/pokemon"    = "⚡ 同 /宝可梦"
+"/神奇宝贝"       = "⚡ 同 /宝可梦"

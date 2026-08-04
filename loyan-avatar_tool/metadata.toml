@@ -1,0 +1,29 @@
+[plugin]
+name        = "随机头像"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "生成随机卡通头像"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Media"
+tags        = ['头像', '卡通']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_avatar"
+
+[trigger]
+commands       = ["/头像", "/随机头像", "/avatar"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/头像"         = "🎨 随机头像（/头像 种子 自定义）"
+"/随机头像"       = "🎨 同 /头像"
+"/avatar"     = "🎨 同 /头像"

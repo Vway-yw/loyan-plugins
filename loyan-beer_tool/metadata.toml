@@ -1,0 +1,29 @@
+[plugin]
+name        = "啤酒百科"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机啤酒信息"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['啤酒', '饮品']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_beer"
+
+[trigger]
+commands       = ["/啤酒", "/beer", "/来瓶啤酒"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/啤酒"         = "🍺 随机啤酒"
+"/beer"       = "🍺 同 /啤酒"
+"/来瓶啤酒"       = "🍺 同 /啤酒"

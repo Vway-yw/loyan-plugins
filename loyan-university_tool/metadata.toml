@@ -1,0 +1,29 @@
+[plugin]
+name        = "大学查询"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "查询中国大学信息"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['大学', '高校', '教育']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_university"
+
+[trigger]
+commands       = ["/大学", "/大学查询", "/university"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/大学"         = "🎓 大学查询（/大学 随机 /大学 清华）"
+"/大学查询"       = "🎓 同 /大学"
+"/university" = "🎓 同 /大学"

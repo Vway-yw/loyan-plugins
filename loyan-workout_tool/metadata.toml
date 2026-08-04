@@ -1,0 +1,29 @@
+[plugin]
+name        = "健身动作"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "随机健身动作推荐"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Life"
+tags        = ['健身', '运动', '健康']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_workout"
+
+[trigger]
+commands       = ["/健身", "/健身动作", "/workout"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/健身"         = "💪 随机健身动作"
+"/健身动作"       = "💪 同 /健身"
+"/workout"    = "💪 同 /健身"
