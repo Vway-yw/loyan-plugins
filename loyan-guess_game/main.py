@@ -31,17 +31,38 @@ async def handle_guess(ctx: PluginContext):
 
     game = get_reading(uid)
 
-    # 开始新游戏
-    if not arg or arg == "重开":
+    # 重开新游戏
+    if arg == "重开":
         target = random.randint(1, RANGE_MAX)
         set_reading(uid, {"mode": "guess", "target": target, "tries": 0, "start": time.time()})
         await ctx.reply(
-            f"🎮 猜数字游戏开始！\n"
+            f"🎮 猜数字游戏重新开始！\n"
             f"━━━━━━━━━━━━\n"
             f"🔢 范围 1-{RANGE_MAX}\n"
             f"💡 /猜数字 <数字> 猜数\n"
             f"⏱️ 限时 {TIMEOUT // 60} 分钟"
         )
+        return
+
+    # 无参数：显示当前状态（不重置游戏）
+    if not arg:
+        if game and game.get("mode") == "guess":
+            remaining = max(0, int(TIMEOUT - (time.time() - game.get("start", 0))))
+            mins, secs = divmod(remaining, 60)
+            await ctx.reply(
+                f"🎮 游戏进行中\n"
+                f"━━━━━━━━━━━━\n"
+                f"🔢 已猜 {game['tries']} 次\n"
+                f"⏱️ 剩余 {mins}:{secs:02d}\n"
+                f"💡 /猜数字 <数字> 继续猜"
+            )
+        else:
+            await ctx.reply(
+                f"🎮 猜数字游戏\n"
+                f"━━━━━━━━━━━━\n"
+                f"💡 /猜数字 开始游戏（1-100）\n"
+                f"📖 /猜数字 <数字> 猜数"
+            )
         return
 
     if arg == "放弃":
