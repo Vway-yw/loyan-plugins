@@ -26,3 +26,4 @@ is_at_required = false
 [trigger.command_descriptions]
 "/倒数日"        = "📅 倒数日（/倒数日 添加 生日 2026-10-01）"
 "/纪念日"        = "📅 同 /倒数日"
+"/countdowns" = "📅 同 /倒数日"

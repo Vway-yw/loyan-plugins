@@ -3,7 +3,9 @@
 命令：
   /loyan get /loyan安装 /loyan配置 — 查看安装配置教程"""
 
-from graci import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext, get_logger
+
+logger = get_logger("Loyan配置")
 
 
 @on_command("/loyan get", "/loyan安装", "/loyan配置")

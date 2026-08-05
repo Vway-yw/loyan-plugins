@@ -26,3 +26,4 @@ is_at_required = false
 [trigger.command_descriptions]
 "/猜数字"        = "🎮 猜数字游戏（1-100）"
 "/猜数"         = "🎮 同 /猜数字"
+"/guess"      = "🎮 同 /猜数字"
