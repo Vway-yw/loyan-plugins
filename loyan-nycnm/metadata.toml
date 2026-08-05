@@ -2,7 +2,7 @@
 name        = "柠柚API"
 version     = "1.0.0"
 author      = "Vway-yw"
-description = "柠柚API平台整合：恶搞语音/踢球动图/答案之书"
+description = "柠柚API平台整合：恶搞语音/踢球动图/答案之书/黑丝图片"
 
 priority    = 50
 icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
@@ -10,15 +10,15 @@ dependencies = []
 
 category    = "Entertainment"
 tags        = ['语音', '恶搞', 'TTS', '柠柚']
-repo        = "Vway-yw/loyan-plugins"
-docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+repo        = "Vway-yw/loyan-nycnm"
+docs_url    = "https://github.com/Vway-yw/loyan-nycnm"
 min_framework = "0.1.0"
 
 [handler]
 entry       = "handle_setkey"
 
 [trigger]
-commands       = ["/设置key", "/设置密钥", "/setkey", "/恶搞语音", "/语音", "/tts", "/踢球", "/踢球动图", "/kickball", "/答案之书", "/答案", "/answerbook"]
+commands       = ["/设置key", "/设置密钥", "/setkey", "/恶搞语音", "/语音", "/tts", "/踢球", "/踢球动图", "/kickball", "/答案之书", "/答案", "/answerbook", "/黑丝", "/黑丝图片", "/heisi"]
 chat_type      = ["private", "group"]
 permission     = "all"
 is_at_required = false
@@ -35,3 +35,6 @@ is_at_required = false
 "/答案之书"     = "📖 答案之书（/答案之书 问题）"
 "/答案"         = "📖 同 /答案之书"
 "/answerbook"   = "📖 同 /答案之书"
+"/黑丝"         = "🖼️ 随机黑丝图片"
+"/黑丝图片"     = "🖼️ 同 /黑丝"
+"/heisi"        = "🖼️ 同 /黑丝"

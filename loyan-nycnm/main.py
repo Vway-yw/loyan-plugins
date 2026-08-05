@@ -5,6 +5,7 @@
   /恶搞语音 <文本>     — 文字转趣味恶搞语音
   /踢球 <QQ号>         — 踢球恶搞动图
   /答案之书 <问题>     — 答案之书
+  /黑丝 <关键词>       — 随机黑丝图片
   /语音 <文本>         — 同 /恶搞语音
 """
 
@@ -208,4 +209,30 @@ async def handle_answer(ctx: PluginContext):
     except Exception as e:
         logger.error(f"答案之书失败: {e}")
         await ctx.reply("❌ 查询失败，请稍后再试")
+
+
+@on_command("/黑丝", "/黑丝图片", "/heisi")
+@plugin_handler
+async def handle_heisi(ctx: PluginContext):
+    """随机黑丝图片"""
+    await ctx.reply("🖼️ 正在获取图片...")
+    try:
+        params = {}
+        if _get_api_key():
+            params["apikey"] = _get_api_key()
+        url = API_BASE + "/heisi1" + ("?" + urllib.parse.urlencode(params) if params else "")
+        img = await asyncio.to_thread(_request_bytes, url)
+        if not img or not (img.startswith(b"\xff\xd8") or img.startswith(b"GIF") or img.startswith(b"\x89PNG")):
+            await ctx.reply("❌ 获取失败，接口未返回图片")
+            return
+        ext = ".jpg" if img.startswith(b"\xff\xd8") else ".gif" if img.startswith(b"GIF") else ".png"
+        temp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        os.makedirs(temp_dir, exist_ok=True)
+        path = os.path.join(temp_dir, f"heisi_{secrets.token_hex(4)}{ext}")
+        with open(path, "wb") as f:
+            f.write(img)
+        await ctx.send(LoyanImage(file_path=path))
+    except Exception as e:
+        logger.error(f"黑丝图片失败: {e}")
+        await ctx.reply("❌ 获取失败，请稍后再试")
 
