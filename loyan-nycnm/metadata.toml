@@ -1,0 +1,37 @@
+[plugin]
+name        = "柠柚API"
+version     = "1.0.0"
+author      = "Vway-yw"
+description = "柠柚API平台整合：恶搞语音/踢球动图/答案之书"
+
+priority    = 50
+icon        = "https://avatars.githubusercontent.com/u/307078813?v=4"
+dependencies = []
+
+category    = "Entertainment"
+tags        = ['语音', '恶搞', 'TTS', '柠柚']
+repo        = "Vway-yw/loyan-plugins"
+docs_url    = "https://github.com/Vway-yw/loyan-plugins"
+min_framework = "0.1.0"
+
+[handler]
+entry       = "handle_setkey"
+
+[trigger]
+commands       = ["/设置key", "/设置密钥", "/setkey", "/恶搞语音", "/语音", "/tts", "/踢球", "/踢球动图", "/kickball", "/答案之书", "/答案", "/answerbook"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/设置key"     = "🔑 设置 API Key（仅主人）"
+"/设置密钥"     = "🔑 同 /设置key（仅主人）"
+"/恶搞语音"     = "🎙️ 文字转趣味恶搞语音（/恶搞语音 柠柚牛逼）"
+"/语音"         = "🎙️ 同 /恶搞语音"
+"/tts"          = "🎙️ 同 /恶搞语音"
+"/踢球"         = "⚽ 踢球恶搞动图（/踢球 QQ号）"
+"/踢球动图"     = "⚽ 同 /踢球"
+"/kickball"     = "⚽ 同 /踢球"
+"/答案之书"     = "📖 答案之书（/答案之书 问题）"
+"/答案"         = "📖 同 /答案之书"
+"/answerbook"   = "📖 同 /答案之书"

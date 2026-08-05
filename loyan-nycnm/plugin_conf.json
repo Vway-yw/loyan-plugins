@@ -1,0 +1,9 @@
+{
+    "api_key": {
+        "type": "str",
+        "default": "",
+        "description": "柠柚API平台 Key",
+        "secret": true,
+        "hint": "在 https://api.nycnm.cn 用户后台获取"
+    }
+}
