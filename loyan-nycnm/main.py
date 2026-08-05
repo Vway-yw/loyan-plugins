@@ -18,7 +18,7 @@ import urllib.request
 from typing import Dict, Optional
 
 from graci import on_command, plugin_handler, PluginContext, get_logger
-from graci import require_master, config_manager, LoyanImage
+from graci import require_master, config_manager, LoyanImage, LoyanVoice
 
 logger = get_logger("柠柚API")
 
@@ -118,7 +118,21 @@ async def handle_tts(ctx: PluginContext):
         if not audio_url:
             await ctx.reply("❌ 未获取到语音地址")
             return
-        await ctx.reply(f"🎙️ 语音生成成功！\n📝 {data.get('text', text)}\n🔗 {audio_url}")
+        # 下载 MP3 并作为语音消息发送
+        try:
+            mp3 = await asyncio.to_thread(_request_bytes, audio_url)
+            if mp3:
+                temp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+                os.makedirs(temp_dir, exist_ok=True)
+                path = os.path.join(temp_dir, f"voice_{secrets.token_hex(4)}.mp3")
+                with open(path, "wb") as f:
+                    f.write(mp3)
+                await ctx.send(LoyanVoice(file_path=path))
+                await ctx.reply(f"📝 {data.get('text', text)}")
+                return
+        except Exception as dl_err:
+            logger.warning(f"语音下载失败，发送链接: {dl_err}")
+        await ctx.reply(f"🎙️ 语音生成成功！\n🔗 {audio_url}")
     except Exception as e:
         logger.error(f"语音生成失败: {e}")
         await ctx.reply("❌ 生成失败，请稍后再试")
