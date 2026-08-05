@@ -22,28 +22,22 @@ from graci import require_master, config_manager, LoyanImage
 
 logger = get_logger("柠柚API")
 
+config_manager.register_plugin_config("柠柚API")
+
 # ── 常量定义 ──
 API_BASE = "https://api.nycnm.cn/api/v2"
 TIMEOUT = 20
 UA = "Mozilla/5.0 (compatible; LoyanBot/1.0)"
 
 # ── 模块级状态 ──
-_config_cache: Optional[dict] = None
-
 
 def _load_config() -> dict:
-    """读取插件配置（带缓存）"""
-    global _config_cache
-    if _config_cache is not None:
-        return _config_cache
-    _config_cache = config_manager.get_plugin("柠柚API") or {}
-    return _config_cache
+    """读取插件配置"""
+    return config_manager.get_plugin("柠柚API") or {}
 
 
 def _save_config(cfg: dict):
-    """保存插件配置"""
-    global _config_cache
-    _config_cache = cfg
+    """保存插件配置（持久化到 storage）"""
     config_manager.update_plugin("柠柚API", cfg)
 
 
@@ -222,13 +216,23 @@ async def handle_heisi(ctx: PluginContext):
             params["apikey"] = _get_api_key()
         url = API_BASE + "/heisi1" + ("?" + urllib.parse.urlencode(params) if params else "")
         img = await asyncio.to_thread(_request_bytes, url)
-        if not img or not (img.startswith(b"\xff\xd8") or img.startswith(b"GIF") or img.startswith(b"\x89PNG")):
+        if not img or len(img) < 100:
             await ctx.reply("❌ 获取失败，接口未返回图片")
             return
-        ext = ".jpg" if img.startswith(b"\xff\xd8") else ".gif" if img.startswith(b"GIF") else ".png"
+        # 用 PIL 统一转成 JPEG（兼容 JPEG/GIF/PNG/WebP，确保能发送）
+        from PIL import Image
+        import io as _io
+        try:
+            pil_img = Image.open(_io.BytesIO(img))
+            pil_img = pil_img.convert("RGB")
+            buf = _io.BytesIO()
+            pil_img.save(buf, format="JPEG", quality=90)
+            img = buf.getvalue()
+        except Exception as conv_err:
+            logger.warning(f"图片转换失败，尝试原样发送: {conv_err}")
         temp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         os.makedirs(temp_dir, exist_ok=True)
-        path = os.path.join(temp_dir, f"heisi_{secrets.token_hex(4)}{ext}")
+        path = os.path.join(temp_dir, f"heisi_{secrets.token_hex(4)}.jpg")
         with open(path, "wb") as f:
             f.write(img)
         await ctx.send(LoyanImage(file_path=path))
