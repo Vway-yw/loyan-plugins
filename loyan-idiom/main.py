@@ -1,4 +1,4 @@
-"""成语接龙 — 与机器人成语接龙游戏
+"""成语接龙 — 与机器人成语接龙游戏（HTML 卡片渲染）
 
 命令：
   /成语             — 开始成语接龙
@@ -11,14 +11,16 @@
   - 重复成语 / 非成语 / 接不上 判负
 """
 
+import asyncio
 import json
 import os
 import random
 import re
+import secrets
 import time
 from typing import Dict, List, Optional
 
-from graci import on_command, plugin_handler, PluginContext
+from graci import on_command, plugin_handler, PluginContext, LoyanImage
 from graci import on_fallback
 from graci import get_logger
 from graci import get_reading, set_reading
@@ -30,11 +32,13 @@ PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
 IDIOM_FILE = os.path.join(PLUGIN_DIR, "idiom4.json")
 TIMEOUT = 120       # 每回合超时秒数
 MAX_ROUNDS = 20     # 最大回合数
-HINT_COST = 3       # 提示需要接上的次数（简单计分用）
+RENDER_WIDTH = 520  # 渲染图片宽度
 
 # ── 模块级状态 ──
 _idiom_index: Optional[Dict[str, List[str]]] = None
 _all_idioms: Optional[List[str]] = None
+_browser = None
+_browser_lock = asyncio.Lock()
 
 
 def _load_idioms() -> Dict[str, List[str]]:
@@ -66,7 +70,6 @@ def _find_response(last_char: str, used: set) -> Optional[str]:
     candidates = [w for w in idx.get(last_char, []) if w not in used]
     if not candidates:
         return None
-    # 优先选能接下去的（双字回环策略：尽量让对方接不上 -> 随机即可）
     return random.choice(candidates)
 
 
@@ -78,12 +81,109 @@ def _format_used(used: List[str]) -> str:
     return "\n".join(lines)
 
 
+# ── HTML 渲染 ──
+
+async def _get_browser():
+    """懒加载 Playwright 浏览器"""
+    global _browser
+    if _browser is None or not _browser.is_connected():
+        from playwright.async_api import async_playwright
+        pw = await async_playwright().start()
+        _browser = await pw.chromium.launch(headless=True, args=["--no-sandbox"])
+    return _browser
+
+
+def _html_card(title: str, used: List[str], last_char: str, status: str, footer: str = "") -> str:
+    """生成成语接龙 HTML 卡片"""
+    chain_html = ""
+    for i, w in enumerate(used):
+        if i == 0:
+            chain_html += f'<span class="idiom first">{w}</span>'
+        elif i == len(used) - 1:
+            chain_html += f'<span class="arrow">→</span><span class="idiom last">{w}</span>'
+        else:
+            chain_html += f'<span class="arrow">→</span><span class="idiom">{w}</span>'
+
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+  body {{ font-family: "Noto Sans CJK SC", "PingFang SC", sans-serif; background: #1a1a2e; }}
+  .card {{ width: {RENDER_WIDTH}px; padding: 24px; background: linear-gradient(135deg, #16213e, #1a1a2e);
+          border-radius: 16px; color: #eee; }}
+  .header {{ text-align: center; margin-bottom: 16px; }}
+  .title {{ font-size: 26px; font-weight: bold; color: #f8c15c; letter-spacing: 2px; }}
+  .subtitle {{ font-size: 12px; color: #8899aa; margin-top: 4px; }}
+  .chain {{ background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 12px; margin-bottom: 16px;
+           display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }}
+  .idiom {{ background: #2a3a55; border-radius: 8px; padding: 8px 10px; font-size: 20px; font-weight: bold; color: #dde6f0; }}
+  .idiom.first {{ background: #f8c15c; color: #1a1a2e; }}
+  .idiom.last {{ background: #4ecdc4; color: #1a1a2e; box-shadow: 0 0 12px rgba(78,205,196,0.4); }}
+  .arrow {{ color: #8899aa; font-size: 14px; }}
+  .status {{ text-align: center; font-size: 18px; color: #4ecdc4; margin-bottom: 12px; }}
+  .prompt {{ text-align: center; font-size: 14px; color: #aabbcc; margin-bottom: 16px; }}
+  .footer {{ text-align: center; font-size: 12px; color: #667788; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; }}
+</style></head><body>
+  <div class="card">
+    <div class="header">
+      <div class="title">🎴 成语接龙</div>
+      <div class="subtitle">{title}</div>
+    </div>
+    <div class="chain">{chain_html}</div>
+    <div class="status">{status}</div>
+    <div class="prompt">💡 /成语 提示 · /成语 结束</div>
+    <div class="footer">{footer}</div>
+  </div>
+</body></html>"""
+
+
+async def _render_card(html: str) -> Optional[str]:
+    """渲染 HTML 卡片为图片，返回本地路径"""
+    try:
+        browser = await _get_browser()
+        async with _browser_lock:
+            page = await browser.new_page()
+            try:
+                await page.set_content(html, wait_until="networkidle")
+                card = await page.query_selector(".card")
+                if not card:
+                    return None
+                temp_dir = os.path.join(PLUGIN_DIR, "data")
+                os.makedirs(temp_dir, exist_ok=True)
+                path = os.path.join(temp_dir, f"idiom_{secrets.token_hex(4)}.png")
+                await card.screenshot(path=path, type="png")
+                return path
+            finally:
+                await page.close()
+    except Exception as e:
+        logger.error(f"渲染失败: {e}")
+        return None
+
+
+async def _reply_card(ctx: PluginContext, title: str, used: List[str], last_char: str, status: str, footer: str = ""):
+    """发送 HTML 卡片（失败时回退文本）"""
+    html = _html_card(title, used, last_char, status, footer)
+    path = await _render_card(html)
+    if path:
+        try:
+            await ctx.send(LoyanImage(file_path=path))
+            return True
+        except Exception as e:
+            logger.error(f"发送图片失败: {e}")
+    await ctx.reply(
+        f"{status}\n"
+        f"━━━━━━━━━━━━\n"
+        f"{_format_used(used)}\n"
+        f"💡 请接「{last_char}」字开头"
+    )
+    return False
+
+
 def _start_game(ctx: PluginContext):
     """开始新游戏：机器人先出题"""
     uid = str(getattr(ctx, "sender_id", "") or "")
     idx = _load_idioms()
     if not idx:
-        return "😢 成语库未就绪，请稍后再试"
+        return None, "😢 成语库未就绪，请稍后再试"
     first = random.choice(random.choice(list(idx.values())))
     game = {
         "mode": "idiom",
@@ -93,13 +193,7 @@ def _start_game(ctx: PluginContext):
         "start_time": time.time(),
     }
     set_reading(uid, game)
-    return (
-        f"🎮 成语接龙开始！\n"
-        f"📖 {first}\n"
-        f"━━━━━━━━━━━━\n"
-        f"请接「{first[-1]}」字开头的成语\n"
-        f"💡 /成语 提示 或 /成语 结束"
-    )
+    return game, None
 
 
 @on_command("/成语", "/成语接龙")
@@ -117,7 +211,11 @@ async def handle_idiom(ctx: PluginContext):
             await ctx.reply("当前没有进行中的成语接龙")
             return
         set_reading(uid, None)
-        await ctx.reply(f"🏁 游戏结束！本轮共接 {len(game['used']) - 1} 个成语\n{_format_used(game['used'])}")
+        await _reply_card(
+            ctx, "游戏结束", game["used"], "",
+            f"🏁 共接 {len(game['used']) - 1} 个成语",
+            "期待下次再战！/成语 开始"
+        )
         return
 
     if action == "提示":
@@ -136,8 +234,15 @@ async def handle_idiom(ctx: PluginContext):
         return
 
     # 开始游戏
-    msg = _start_game(ctx)
-    await ctx.reply(msg)
+    game, err = _start_game(ctx)
+    if err:
+        await ctx.reply(err)
+        return
+    await _reply_card(
+        ctx, "游戏开始", game["used"], game["last_char"],
+        f"请接「{game['last_char']}」字开头的成语",
+        f"⏱️ 限时 {TIMEOUT} 秒 · 第 {game['round']} 轮"
+    )
 
 
 async def _handle_answer(ctx: PluginContext):
@@ -154,8 +259,8 @@ async def _handle_answer(ctx: PluginContext):
 
     # 超时检查
     if time.time() - game.get("turn_time", game["start_time"]) > TIMEOUT:
-        await ctx.reply(f"⏰ 超时未接！游戏结束，共接 {len(game['used']) - 1} 个成语")
         set_reading(uid, None)
+        await ctx.reply(f"⏰ 超时未接！游戏结束，共接 {len(game['used']) - 1} 个成语")
         return True
 
     # 校验：首字匹配
@@ -180,17 +285,21 @@ async def _handle_answer(ctx: PluginContext):
 
     if game["round"] > MAX_ROUNDS:
         set_reading(uid, None)
-        await ctx.reply(f"🎉 你连对了 {MAX_ROUNDS} 轮！太强了，本轮获胜！\n{_format_used(game['used'])}")
+        await _reply_card(
+            ctx, "🎉 你赢了！", game["used"], "",
+            f"连对 {MAX_ROUNDS} 轮！太强了",
+            "/成语 再来一局"
+        )
         return True
 
     # 机器人接龙
     response = _find_response(word[-1], set(game["used"]))
     if not response:
         set_reading(uid, None)
-        await ctx.reply(
-            f"🏆 恭喜！你赢了！\n"
-            f"「{word[-1]}」字开头的成语已被用尽\n"
-            f"共接 {len(game['used']) - 1} 个成语\n{_format_used(game['used'])}"
+        await _reply_card(
+            ctx, "🏆 恭喜获胜！", game["used"], "",
+            f"「{word[-1]}」字成语已被用尽 · 共接 {len(game['used']) - 1} 个",
+            "/成语 再来一局"
         )
         return True
 
@@ -199,11 +308,9 @@ async def _handle_answer(ctx: PluginContext):
     game["turn_time"] = time.time()
     set_reading(uid, game)
 
-    await ctx.reply(
-        f"✅ 接得好！\n"
-        f"🤖 {response}\n"
-        f"━━━━━━━━━━━━\n"
-        f"请接「{response[-1]}」字开头\n"
+    await _reply_card(
+        ctx, "✅ 接得好！", game["used"], game["last_char"],
+        f"请接「{game['last_char']}」字开头",
         f"⏱️ 限时 {TIMEOUT} 秒 · 第 {game['round']} 轮"
     )
     return True
@@ -214,6 +321,9 @@ async def handle_answer_fallback(self_bot, bot, message, user_id, chat_type, per
     """兜底：拦截未匹配消息作为成语接龙"""
     async def _reply(text):
         await bot(str(user_id), text, chat_type=chat_type)
+
+    async def _send(seg, ct=None):
+        await bot(str(user_id), seg, chat_type=chat_type)
     ctx = PluginContext(
         sender_id=str(user_id),
         target_id=str(user_id),
@@ -230,5 +340,5 @@ async def handle_answer_fallback(self_bot, bot, message, user_id, chat_type, per
         runtime=None,
     )
     ctx.reply = _reply
-    ctx.send = _reply
+    ctx.send = _send
     return await _handle_answer(ctx)
